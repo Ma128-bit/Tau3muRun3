@@ -3,7 +3,7 @@
 ## Setting the environment
 
 ```
-cmsrel CMSSW_13_0_13 (or CMSSW_12_4_11_patch3 for 2022 preE data)
+cmsrel CMSSW_13_0_13 (or CMSSW_12_4_11_patch3 for 2022 preEE data)
 cd CMSSW_13_0_13/src
 cmsenv
 git clone https://github.com/Ma128-bit/Tau3muRun3 .
