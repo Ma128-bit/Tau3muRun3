@@ -95,7 +95,7 @@ def MC_y(era_name, year):
 
 if __name__ == "__main__":
     if not os.path.exists("Mass_Fits"):
-    subprocess.run(["mkdir", "Mass_Fits"])
+        subprocess.run(["mkdir", "Mass_Fits"])
     
     parser = argparse.ArgumentParser(description="--plots for control plots")
     parser.add_argument("--year", type=str, help="year (2022 or 2023)")
@@ -103,7 +103,7 @@ if __name__ == "__main__":
     df = pd.DataFrame(columns=['MC', 'Yield', 'Error'])
     if year == "2022":
         label="E"
-    elif year = "2023":
+    elif year == "2023":
         label="BPix"
     new_line = MC_y("DsPhiPi_pre"+label,year)
     df = pd.concat([df, new_line], ignore_index=True)
