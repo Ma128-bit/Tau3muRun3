@@ -34,12 +34,13 @@ Modify `file_locations.py` to specify the locations of your files
     * with `X` = `tau3mu` or `control`
   * Out: Takes the outputs of New_Ntuple.py, combines them, and includes the MVA score in a *plusMVA.root file
 
+* `DsPhiPi_sPlot.cpp`
+  * Run as: `root -l`, `.L DsPhiPi_sPlot.cpp` `DsPhiPi_sPlot(root_name, tree_name, isMC)`
+    * with `isMC` = 0 or 5
+    * example `DsPhiPi_sPlot("ROOTFiles/AllControl2022", "FinalTree", 0)`
+
 * `Control_plots.py`
   * Run as: `python3 Control_plots.py --year 2022 --type diff --file ROOTFiles/AllControl2022.root`
   * Options: `--year` : `2022` or `2023`; `--type` : `sPlot` or `diff` 
   * Out: Control_Plots directories with plots
  
-* `DsPhiPi_sPlot.cpp`
-  * Run as: `root -l`, `.L DsPhiPi_sPlot.cpp` `DsPhiPi_sPlot(root_name, tree_name, isMC)`
-    * with `isMC` = 0 or 5
-    * example `DsPhiPi_sPlot("ROOTFiles/AllControl2022", "FinalTree", 0)`
