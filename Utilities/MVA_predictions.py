@@ -62,8 +62,6 @@ if __name__ == "__main__":
     elif type=="control":
         type = "Control"
         max = 3
-    else:
-        return
         
     files = ["ROOTFiles/All"+type+"2022.root", "ROOTFiles/All"+type+"2023.root"]
     model = joblib.load('MVA_KPiGlobalNoPt.pkl')
