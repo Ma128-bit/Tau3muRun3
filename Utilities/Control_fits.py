@@ -345,7 +345,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="--plots for control plots")
     parser.add_argument("--year", type=str, help="year (2022 or 2023)")
     args = parser.parse_args()
-    do_plots = args.plots
     year = args.year
     Fit_inv_mass(year)
 
