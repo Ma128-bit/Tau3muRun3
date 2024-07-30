@@ -107,8 +107,6 @@ if __name__ == "__main__":
         label="E"
     elif year == "2023":
         label="BPix"
-    else:
-        return
     new_line = MC_y("DsPhiPi_pre"+label,year)
     df = pd.concat([df, new_line], ignore_index=True)
     
