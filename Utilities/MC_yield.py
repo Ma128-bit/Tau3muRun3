@@ -1,5 +1,5 @@
 import ROOT
-import argparse
+import argparse, os
 ROOT.gROOT.SetBatch(True)
 import pandas as pd
 from file_locations import *
@@ -99,12 +99,16 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description="--plots for control plots")
     parser.add_argument("--year", type=str, help="year (2022 or 2023)")
-
+    args = parser.parse_args()
+    year = args.year
+    
     df = pd.DataFrame(columns=['MC', 'Yield', 'Error'])
     if year == "2022":
         label="E"
     elif year == "2023":
         label="BPix"
+    else:
+        return
     new_line = MC_y("DsPhiPi_pre"+label,year)
     df = pd.concat([df, new_line], ignore_index=True)
     
