@@ -540,6 +540,129 @@ if args.anatype == 'control':
    if args.dataset == 'data_control' and args.run == '2023D-v2_7':
       path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass7/SkimDsPhiPi_2023eraD-v2_stream7_Mini_v3/240402_144326'
 
+   ###############2024####################
+   if args.dataset == 'data_control' and args.run == '2024B_0':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass0/SkimDsPhiPi_2024eraB_stream0_Mini_v3/240917_152046'
+   if args.dataset == 'data_control' and args.run == '2024B_1':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass1/SkimDsPhiPi_2024eraB_stream1_Mini_v3/240917_152101'
+   if args.dataset == 'data_control' and args.run == '2024B_2':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass2/SkimDsPhiPi_2024eraB_stream2_Mini_v3/240917_152115'
+   if args.dataset == 'data_control' and args.run == '2024B_3':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass3/SkimDsPhiPi_2024eraB_stream3_Mini_v3/240917_152130'
+   if args.dataset == 'data_control' and args.run == '2024B_4':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass4/SkimDsPhiPi_2024eraB_stream4_Mini_v3/240917_152145'
+   if args.dataset == 'data_control' and args.run == '2024B_5':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass5/SkimDsPhiPi_2024eraB_stream5_Mini_v3/240917_152200'
+   if args.dataset == 'data_control' and args.run == '2024B_6':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass6/SkimDsPhiPi_2024eraB_stream6_Mini_v3/240917_152215'
+   if args.dataset == 'data_control' and args.run == '2024B_7':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass7/SkimDsPhiPi_2024eraB_stream7_Mini_v3/240917_152230'
+
+   if args.dataset == 'data_control' and args.run == '2024C_0':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass0/SkimDsPhiPi_2024eraC_stream0_Mini_v3/240917_155145'
+   if args.dataset == 'data_control' and args.run == '2024C_1':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass1/SkimDsPhiPi_2024eraC_stream1_Mini_v3/240917_155201'
+   if args.dataset == 'data_control' and args.run == '2024C_2':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass2/SkimDsPhiPi_2024eraC_stream2_Mini_v3/240917_155216'
+   if args.dataset == 'data_control' and args.run == '2024C_3':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass3/SkimDsPhiPi_2024eraC_stream3_Mini_v3/240917_155231'
+   if args.dataset == 'data_control' and args.run == '2024C_4':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass4/SkimDsPhiPi_2024eraC_stream4_Mini_v3/240917_155247'
+   if args.dataset == 'data_control' and args.run == '2024C_5':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass5/SkimDsPhiPi_2024eraC_stream5_Mini_v3/240917_155303'
+   if args.dataset == 'data_control' and args.run == '2024C_6':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass6/SkimDsPhiPi_2024eraC_stream6_Mini_v3/240917_200929'
+   if args.dataset == 'data_control' and args.run == '2024C_7':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass7/SkimDsPhiPi_2024eraC_stream7_Mini_v3/240917_200946'
+
+   if args.dataset == 'data_control' and args.run == '2024D_0':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass0/SkimDsPhiPi_2024eraD_stream0_Mini_v3/240917_161446'
+   if args.dataset == 'data_control' and args.run == '2024D_1':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass1/SkimDsPhiPi_2024eraD_stream1_Mini_v3/240917_161457'
+   if args.dataset == 'data_control' and args.run == '2024D_2':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass2/SkimDsPhiPi_2024eraD_stream2_Mini_v3/240917_161509'
+   if args.dataset == 'data_control' and args.run == '2024D_3':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass3/SkimDsPhiPi_2024eraD_stream3_Mini_v3/240917_161520'
+   if args.dataset == 'data_control' and args.run == '2024D_4':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass4/SkimDsPhiPi_2024eraD_stream4_Mini_v3/240917_161530'
+   if args.dataset == 'data_control' and args.run == '2024D_5':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass5/SkimDsPhiPi_2024eraD_stream5_Mini_v3/240917_161541'
+   if args.dataset == 'data_control' and args.run == '2024D_6':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass6/SkimDsPhiPi_2024eraD_stream6_Mini_v3/240917_161555'
+   if args.dataset == 'data_control' and args.run == '2024D_7':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass7/SkimDsPhiPi_2024eraD_stream7_Mini_v3/240917_161606'
+
+   if args.dataset == 'data_control' and args.run == '2024E-v1_0':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass0/SkimDsPhiPi_2024eraE-v1_stream0_Mini_v3/240917_161618'
+   if args.dataset == 'data_control' and args.run == '2024E-v1_1':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass1/SkimDsPhiPi_2024eraE-v1_stream1_Mini_v3/240917_161629'
+   if args.dataset == 'data_control' and args.run == '2024E-v1_2':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass2/SkimDsPhiPi_2024eraE-v1_stream2_Mini_v3/240917_161639'
+   if args.dataset == 'data_control' and args.run == '2024E-v1_3':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass3/SkimDsPhiPi_2024eraE-v1_stream3_Mini_v3/240917_161649'
+   if args.dataset == 'data_control' and args.run == '2024E-v1_4':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass4/SkimDsPhiPi_2024eraE-v1_stream4_Mini_v3/240917_161659'
+   if args.dataset == 'data_control' and args.run == '2024E-v1_5':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass5/SkimDsPhiPi_2024eraE-v1_stream5_Mini_v3/240917_161710'
+   if args.dataset == 'data_control' and args.run == '2024E-v1_6':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass6/SkimDsPhiPi_2024eraE-v1_stream6_Mini_v3/240917_161720'
+   if args.dataset == 'data_control' and args.run == '2024E-v1_7':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass7/SkimDsPhiPi_2024eraE-v1_stream7_Mini_v3/240917_161734'
+
+   if args.dataset == 'data_control' and args.run == '2024E-v2_0':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass0/SkimDsPhiPi_2024eraE-v2_stream0_Mini_v3/240917_161740'
+   if args.dataset == 'data_control' and args.run == '2024E-v2_1':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass1/SkimDsPhiPi_2024eraE-v2_stream1_Mini_v3/240917_161750'
+   if args.dataset == 'data_control' and args.run == '2024E-v2_2':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass2/SkimDsPhiPi_2024eraE-v2_stream2_Mini_v3/240917_161800'
+   if args.dataset == 'data_control' and args.run == '2024E-v2_3':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass3/SkimDsPhiPi_2024eraE-v2_stream3_Mini_v3/240917_161810'
+   if args.dataset == 'data_control' and args.run == '2024E-v2_4':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass4/SkimDsPhiPi_2024eraE-v2_stream4_Mini_v3/240917_161821'
+   if args.dataset == 'data_control' and args.run == '2024E-v2_5':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass5/SkimDsPhiPi_2024eraE-v2_stream5_Mini_v3/240917_161832'
+   if args.dataset == 'data_control' and args.run == '2024E-v2_6':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass6/SkimDsPhiPi_2024eraE-v2_stream6_Mini_v3/240917_161843'
+   if args.dataset == 'data_control' and args.run == '2024E-v2_7':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass7/SkimDsPhiPi_2024eraE-v2_stream7_Mini_v3/240917_161854'
+
+   if args.dataset == 'data_control' and args.run == '2024F_0':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass0/SkimDsPhiPi_2024eraF_stream0_Mini_v3/240917_161901'
+   if args.dataset == 'data_control' and args.run == '2024F_1':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass1/SkimDsPhiPi_2024eraF_stream1_Mini_v3/240917_161910'
+   if args.dataset == 'data_control' and args.run == '2024F_2':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass2/SkimDsPhiPi_2024eraF_stream2_Mini_v3/240917_161920'
+   if args.dataset == 'data_control' and args.run == '2024F_3':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass3/SkimDsPhiPi_2024eraF_stream3_Mini_v3/240917_161930'
+   if args.dataset == 'data_control' and args.run == '2024F_4':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass4/SkimDsPhiPi_2024eraF_stream4_Mini_v3/240917_161941'
+   if args.dataset == 'data_control' and args.run == '2024F_5':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass5/SkimDsPhiPi_2024eraF_stream5_Mini_v3/240917_161951'
+   if args.dataset == 'data_control' and args.run == '2024F_6':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass6/SkimDsPhiPi_2024eraF_stream6_Mini_v3/240917_162004'
+   if args.dataset == 'data_control' and args.run == '2024F_7':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass7/SkimDsPhiPi_2024eraF_stream7_Mini_v3/240917_162014'
+
+   '''
+   if args.dataset == 'data_control' and args.run == '2024G_0':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass0/SkimDsPhiPi_2024eraG_stream0_Mini_v3/240917_152046'
+   if args.dataset == 'data_control' and args.run == '2024G_1':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass1/SkimDsPhiPi_2024eraG_stream1_Mini_v3/240917_152046'
+   if args.dataset == 'data_control' and args.run == '2024G_2':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass2/SkimDsPhiPi_2024eraG_stream2_Mini_v3/240917_152046'
+   if args.dataset == 'data_control' and args.run == '2024G_3':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass3/SkimDsPhiPi_2024eraG_stream3_Mini_v3/240917_152046'
+   if args.dataset == 'data_control' and args.run == '2024G_4':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass4/SkimDsPhiPi_2024eraG_stream4_Mini_v3/240917_152046'
+   if args.dataset == 'data_control' and args.run == '2024G_5':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass5/SkimDsPhiPi_2024eraG_stream5_Mini_v3/240917_152046'
+   if args.dataset == 'data_control' and args.run == '2024G_6':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass6/SkimDsPhiPi_2024eraG_stream6_Mini_v3/240917_152046'
+   if args.dataset == 'data_control' and args.run == '2024G_7':
+      path = '/lustre/cms/store/user/fnenna/ParkingDoubleMuonLowMass7/SkimDsPhiPi_2024eraG_stream7_Mini_v3/240917_152046'
+   '''
+
+
 if args.dataset == 'MC' and args.MCprocess == 'Ds_preE':
    path = '/lustre/cms/store/user/mbuonsan/DstoTau_Tauto3Mu_3MuFilter_TuneCP5_13p6TeV_pythia8-evtgen/SkimTau3mu_MCRun3_Ds_new_Mini_preE/240401_200539'
 if args.dataset == 'MC' and args.MCprocess == 'Ds_postE':
