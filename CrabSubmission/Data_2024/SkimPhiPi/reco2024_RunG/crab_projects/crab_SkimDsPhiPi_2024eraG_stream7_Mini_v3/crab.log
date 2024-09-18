@@ -1,0 +1,170 @@
+DEBUG 2024-09-17 16:21:28.344 UTC: 	 CRAB Client version: v3.240621
+DEBUG 2024-09-17 16:21:28.344 UTC: 	 Running on: Linux lxplus933.cern.ch 5.14.0-427.31.1.el9_4.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Aug 9 14:06:03 EDT 2024 x86_64 x86_64 x86_64 GNU/Linux - Red Hat Enterprise Linux 9.4 (Plow)
+DEBUG 2024-09-17 16:21:28.344 UTC: 	 Executing command: 'submit'
+DEBUG 2024-09-17 16:21:28.344 UTC: 	 Found CRAB cache file /afs/cern.ch/user/f/fnenna/.crab3
+INFO 2024-09-17 16:21:28.345 UTC: 	 Will use CRAB configuration file crab_DsPhiPi_reco2024_RunG_stream7_cfg.py
+DEBUG 2024-09-17 16:21:28.345 UTC: 	 Loading CRAB configuration file.
+DEBUG 2024-09-17 16:21:28.413 UTC: 	 Will use CRAB plugin ANALYSIS (i.e. will run an analysis job type).
+DEBUG 2024-09-17 16:21:28.505 UTC: 	 Checking credentials
+DEBUG 2024-09-17 16:21:28.505 UTC: 	 Found proxy file /tmp/x509up_u160683
+DEBUG 2024-09-17 16:21:28.505 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2024-09-17 16:21:28.505 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /tmp/x509up_u160683
+DEBUG 2024-09-17 16:21:28.867 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-17 16:21:28.867 UTC: 	 Getting proxy life time left
+DEBUG 2024-09-17 16:21:28.867 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u160683
+DEBUG 2024-09-17 16:21:29.230 UTC: 	 output : 690788
+690788
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-17 16:21:29.231 UTC: 	 Proxy valid for 191:53:08 hours
+DEBUG 2024-09-17 16:21:29.231 UTC: 	 Encoded data for curl request: subresource=delegatedn
+DEBUG 2024-09-17 16:21:29.286 UTC: 	 Registering user credentials on myproxy for /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+DEBUG 2024-09-17 16:21:29.287 UTC: 	 Executing command :
+ voms-proxy-info --identity --file /tmp/x509up_u160683
+DEBUG 2024-09-17 16:21:29.648 UTC: 	 output : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=fnenna/CN=868185/CN=Felice Nenna
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-17 16:21:29.648 UTC: 	 Getting myproxy life time left for a133b326f2e83ec4c6fd8cd18786edfdbb69b415
+DEBUG 2024-09-17 16:21:29.649 UTC: 	 Executing command :
+ myproxy-info -s myproxy.cern.ch -l a133b326f2e83ec4c6fd8cd18786edfdbb69b415
+DEBUG 2024-09-17 16:21:29.910 UTC: 	 output : username: a133b326f2e83ec4c6fd8cd18786edfdbb69b415
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=fnenna/CN=868185/CN=Felice Nenna
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  timeleft: 718:53:08  (30.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-17 16:21:29.910 UTC: 	 Myproxy is valid: 2587980
+DEBUG 2024-09-17 16:21:29.910 UTC: 	 Result of myproxy credential check:
+  Credential exists on myproxy: username: a133b326f2e83ec4c6fd8cd18786edfdbb69b415  - validity: 29 days, 22:53:00
+DEBUG 2024-09-17 16:21:29.910 UTC: 	 Command use: submit
+DEBUG 2024-09-17 16:21:29.910 UTC: 	 Options use: ['-c', 'crab_DsPhiPi_reco2024_RunG_stream7_cfg.py']
+DEBUG 2024-09-17 16:21:29.910 UTC: 	 Encoded data for curl request: subresource=version
+DEBUG 2024-09-17 16:21:29.967 UTC: 	 CRABClient version: v3.240621
+DEBUG 2024-09-17 16:21:29.967 UTC: 	 Instance is prod
+DEBUG 2024-09-17 16:21:29.967 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2024-09-17 16:21:29.967 UTC: 	 Command api workflow
+DEBUG 2024-09-17 16:21:29.967 UTC: 	 Started submission
+DEBUG 2024-09-17 16:21:29.967 UTC: 	 Working on /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunG/crab_projects/crab_SkimDsPhiPi_2024eraG_stream7_Mini_v3
+DEBUG 2024-09-17 16:21:29.968 UTC: 	 Encoded data for curl request: subresource=backendurls
+DEBUG 2024-09-17 16:21:30.048 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-17 16:21:30.048 UTC: 	 Found CMSSW_14_0_12 for el9_amd64_gcc12 with base /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12
+DEBUG 2024-09-17 16:21:30.048 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-17 16:21:30.048 UTC: 	 Found CMSSW_14_0_12 for el9_amd64_gcc12 with base /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12
+DEBUG 2024-09-17 16:21:30.048 UTC: 	 UNIQUE NAME: tarUUID bd67e83e-c122-4539-8152-b2572fbb8bde 
+DEBUG 2024-09-17 16:21:30.049 UTC: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferLogs = False
+config.General.requestName = 'SkimDsPhiPi_2024eraG_stream7_Mini_v3'
+config.General.workArea = 'crab_projects'
+config.General.transferOutputs = True
+config.section_('JobType')
+config.JobType.pluginName = 'Analysis'
+config.JobType.psetName = '/eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024G_DsPhiPiSkimAndTree_cfg.py'
+config.JobType.allowUndistributedCMSSW = True
+config.section_('Data')
+config.Data.splitting = 'LumiBased'
+config.Data.outputDatasetTag = 'SkimDsPhiPi_2024eraG_stream7_Mini_v3'
+config.Data.inputDataset = '/ParkingDoubleMuonLowMass7/Run2024G-PromptReco-v1/MINIAOD'
+config.Data.lumiMask = 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_eraG_Golden.json'
+config.Data.inputDBS = 'global'
+config.Data.unitsPerJob = 50
+config.section_('Site')
+config.Site.ignoreGlobalBlacklist = True
+config.Site.storageSite = 'T2_IT_Bari'
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2024-09-17 16:21:30.049 UTC: 	 self.config.JobType.psetName: /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024G_DsPhiPiSkimAndTree_cfg.py
+INFO 2024-09-17 16:21:30.049 UTC: 	 Importing CMSSW configuration /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024G_DsPhiPiSkimAndTree_cfg.py
+INFO 2024-09-17 16:21:30.826 UTC: 	 Finished importing CMSSW configuration /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024G_DsPhiPiSkimAndTree_cfg.py
+DEBUG 2024-09-17 16:21:30.826 UTC: 	 Writing CMSSW configuration to /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunG/crab_projects/crab_SkimDsPhiPi_2024eraG_stream7_Mini_v3/inputs/PSet.py
+DEBUG 2024-09-17 16:21:30.922 UTC: 	 The following EDM output files will be collected: []
+DEBUG 2024-09-17 16:21:30.922 UTC: 	 The following TFile output files will be collected: ['Tree_PhiPi.root']
+DEBUG 2024-09-17 16:21:30.922 UTC: 	 The following user output files (not listed as PoolOuputModule or TFileService in the CMSSW PSet) will be collected: 
+DEBUG 2024-09-17 16:21:30.922 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-17 16:21:30.922 UTC: 	 Found CMSSW_14_0_12 for el9_amd64_gcc12 with base /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12
+DEBUG 2024-09-17 16:21:30.922 UTC: 	 Making tarball in /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunG/crab_projects/crab_SkimDsPhiPi_2024eraG_stream7_Mini_v3/inputs/bd67e83e-c122-4539-8152-b2572fbb8bdedefault.tgz
+DEBUG 2024-09-17 16:21:30.924 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/bin
+DEBUG 2024-09-17 16:21:30.924 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/bin to tarball
+DEBUG 2024-09-17 16:21:30.927 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/python
+DEBUG 2024-09-17 16:21:30.927 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/python to tarball
+DEBUG 2024-09-17 16:21:30.982 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/cfipython
+DEBUG 2024-09-17 16:21:30.982 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/cfipython to tarball
+DEBUG 2024-09-17 16:21:31.002 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/lib
+DEBUG 2024-09-17 16:21:31.002 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/lib to tarball
+DEBUG 2024-09-17 16:21:31.082 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/biglib
+DEBUG 2024-09-17 16:21:31.082 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/biglib to tarball
+DEBUG 2024-09-17 16:21:31.083 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/module
+DEBUG 2024-09-17 16:21:31.083 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/config/SCRAM/hooks
+DEBUG 2024-09-17 16:21:31.083 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/config/SCRAM/hooks to tarball
+DEBUG 2024-09-17 16:21:31.186 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/MiniAnaTau3Mu/python to tarball
+DEBUG 2024-09-17 16:21:31.201 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/PFCandFilter/python to tarball
+DEBUG 2024-09-17 16:21:31.207 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/RecoMuonAnalyzer/python to tarball
+DEBUG 2024-09-17 16:21:31.218 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/SimpleEventCounter/python to tarball
+DEBUG 2024-09-17 16:21:31.229 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/TrackFromCandProducer/python to tarball
+DEBUG 2024-09-17 16:21:31.234 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiMuNu/python to tarball
+DEBUG 2024-09-17 16:21:31.239 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/python to tarball
+DEBUG 2024-09-17 16:21:31.244 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimTau3Mu/python to tarball
+DEBUG 2024-09-17 16:21:31.383 UTC: 	 Uploading archive /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunG/crab_projects/crab_SkimDsPhiPi_2024eraG_stream7_Mini_v3/inputs/bd67e83e-c122-4539-8152-b2572fbb8bdedefault.tgz (429 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2024-09-17 16:21:31.572 UTC: 	 Encoded data for curl request: subresource=upload&objecttype=sandbox&tarballname=aaef88a3a73ac4442a9807e8e3a48752906c3b3fe6c9730e05a7af1b3120a09d.tar.gz
+DEBUG 2024-09-17 16:21:31.636 UTC: 	 sandbox aaef88a3a73ac4442a9807e8e3a48752906c3b3fe6c9730e05a7af1b3120a09d.tar.gz is already in the S3 store, will not upload again
+DEBUG 2024-09-17 16:21:31.636 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-17 16:21:31.636 UTC: 	 Found CMSSW_14_0_12 for el9_amd64_gcc12 with base /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12
+DEBUG 2024-09-17 16:21:31.636 UTC: 	 Making tarball in /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunG/crab_projects/crab_SkimDsPhiPi_2024eraG_stream7_Mini_v3/inputs/debugFiles.tgz
+DEBUG 2024-09-17 16:21:31.648 UTC: 	 Uploading archive /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunG/crab_projects/crab_SkimDsPhiPi_2024eraG_stream7_Mini_v3/inputs/debugFiles.tgz (1 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2024-09-17 16:21:31.653 UTC: 	 Encoded data for curl request: subresource=upload&objecttype=sandbox&tarballname=660599bffb93d8e6431d16d6bd34e78133a1850b45cb81a1274c44fffcbf1c97.tar.gz
+DEBUG 2024-09-17 16:21:31.715 UTC: 	 Will execute:
+curl -f -v -X POST  -H "User-Agent: CRAB" -F "key=fnenna/sandboxes/660599bffb93d8e6431d16d6bd34e78133a1850b45cb81a1274c44fffcbf1c97.tar.gz" -F "AWSAccessKeyId=715203df6482458ba839e73e6dab634b" -F "policy=eyJleHBpcmF0aW9uIjogIjIwMjQtMDktMTdUMTc6MjE6MzFaIiwgImNvbmRpdGlvbnMiOiBbeyJidWNrZXQiOiAiY3JhYmNhY2hlX3Byb2QifSwgeyJrZXkiOiAiZm5lbm5hL3NhbmRib3hlcy82NjA1OTliZmZiOTNkOGU2NDMxZDE2ZDZiZDM0ZTc4MTMzYTE4NTBiNDVjYjgxYTEyNzRjNDRmZmZjYmYxYzk3LnRhci5neiJ9XX0=" -F "signature=iePVaa7fnv1frvEJ7MkYVYj8a+g=" -F "file=@/eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunG/crab_projects/crab_SkimDsPhiPi_2024eraG_stream7_Mini_v3/inputs/debugFiles.tgz" "https://s3.cern.ch/crabcache_prod"
+DEBUG 2024-09-17 16:21:31.760 UTC: 	 exitcode: 0
+stdout: b''
+DEBUG 2024-09-17 16:21:31.760 UTC: 	 sandbox /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunG/crab_projects/crab_SkimDsPhiPi_2024eraG_stream7_Mini_v3/inputs/debugFiles.tgz successfully uploaded to S3
+DEBUG 2024-09-17 16:21:31.760 UTC: 	 Result uploading input files: aaef88a3a73ac4442a9807e8e3a48752906c3b3fe6c9730e05a7af1b3120a09d.tar.gz 
+DEBUG 2024-09-17 16:21:31.760 UTC: 	 Attaching lumi mask https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_eraG_Golden.json to the request
+DEBUG 2024-09-17 16:21:31.760 UTC: 	 Downloading lumi-mask from https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_eraG_Golden.json
+ERROR 2024-09-17 16:21:31.799 UTC: 	 CMSSW failed to get lumimask from URL. Please try to download the lumimask yourself and point to it in crabConfig;
+HTTP Error 403: Forbidden
+ERROR 2024-09-17 16:21:31.800 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/JobType/LumiMask.py", line 30, in getLumiList
+    lumi_list = LumiList(url = lumi_mask_name)
+  File "/cvmfs/cms.cern.ch/el9_amd64_gcc12/cms/cmssw/CMSSW_14_0_12/src/FWCore/PythonUtilities/python/LumiList.py", line 63, in __init__
+    jsonFile = urlopen(url)
+  File "/cvmfs/cms.cern.ch/el9_amd64_gcc12/external/python3/3.9.14-8e02587b42992e07ed46b00eca9dfc3a/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/cvmfs/cms.cern.ch/el9_amd64_gcc12/external/python3/3.9.14-8e02587b42992e07ed46b00eca9dfc3a/lib/python3.9/urllib/request.py", line 523, in open
+    response = meth(req, response)
+  File "/cvmfs/cms.cern.ch/el9_amd64_gcc12/external/python3/3.9.14-8e02587b42992e07ed46b00eca9dfc3a/lib/python3.9/urllib/request.py", line 632, in http_response
+    response = self.parent.error(
+  File "/cvmfs/cms.cern.ch/el9_amd64_gcc12/external/python3/3.9.14-8e02587b42992e07ed46b00eca9dfc3a/lib/python3.9/urllib/request.py", line 561, in error
+    return self._call_chain(*args)
+  File "/cvmfs/cms.cern.ch/el9_amd64_gcc12/external/python3/3.9.14-8e02587b42992e07ed46b00eca9dfc3a/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/cvmfs/cms.cern.ch/el9_amd64_gcc12/external/python3/3.9.14-8e02587b42992e07ed46b00eca9dfc3a/lib/python3.9/urllib/request.py", line 641, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 403: Forbidden
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/bin/crab.py", line 152, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/bin/crab.py", line 137, in __call__
+    returnDict = self.cmd()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/submit.py", line 107, in __call__
+    dummy_inputfiles, jobconfig = plugjobtype.run(filecacheurl)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/JobType/Analysis.py", line 224, in run
+    lumi_list = getLumiList(lumi_mask_name, logger = self.logger)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/JobType/LumiMask.py", line 32, in getLumiList
+    raise ConfigurationException("CMSSW failed to get lumimask from URL. Please try to download the lumimask yourself and point to it in crabConfig;\n%s" % str(err))
+CRABClient.ClientExceptions.ConfigurationException: CMSSW failed to get lumimask from URL. Please try to download the lumimask yourself and point to it in crabConfig;
+HTTP Error 403: Forbidden

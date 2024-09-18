@@ -1,0 +1,170 @@
+DEBUG 2024-09-17 16:19:27.457 UTC: 	 CRAB Client version: v3.240621
+DEBUG 2024-09-17 16:19:27.457 UTC: 	 Running on: Linux lxplus933.cern.ch 5.14.0-427.31.1.el9_4.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Aug 9 14:06:03 EDT 2024 x86_64 x86_64 x86_64 GNU/Linux - Red Hat Enterprise Linux 9.4 (Plow)
+DEBUG 2024-09-17 16:19:27.457 UTC: 	 Executing command: 'submit'
+DEBUG 2024-09-17 16:19:27.457 UTC: 	 Found CRAB cache file /afs/cern.ch/user/f/fnenna/.crab3
+INFO 2024-09-17 16:19:27.458 UTC: 	 Will use CRAB configuration file crab_DsPhiPi_reco2024_RunF_stream3_cfg.py
+DEBUG 2024-09-17 16:19:27.458 UTC: 	 Loading CRAB configuration file.
+DEBUG 2024-09-17 16:19:27.500 UTC: 	 Will use CRAB plugin ANALYSIS (i.e. will run an analysis job type).
+DEBUG 2024-09-17 16:19:27.509 UTC: 	 Checking credentials
+DEBUG 2024-09-17 16:19:27.509 UTC: 	 Found proxy file /tmp/x509up_u160683
+DEBUG 2024-09-17 16:19:27.509 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2024-09-17 16:19:27.509 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /tmp/x509up_u160683
+DEBUG 2024-09-17 16:19:27.880 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-17 16:19:27.880 UTC: 	 Getting proxy life time left
+DEBUG 2024-09-17 16:19:27.880 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u160683
+DEBUG 2024-09-17 16:19:28.234 UTC: 	 output : 690909
+690909
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-17 16:19:28.235 UTC: 	 Proxy valid for 191:55:09 hours
+DEBUG 2024-09-17 16:19:28.235 UTC: 	 Encoded data for curl request: subresource=delegatedn
+DEBUG 2024-09-17 16:19:28.292 UTC: 	 Registering user credentials on myproxy for /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+DEBUG 2024-09-17 16:19:28.292 UTC: 	 Executing command :
+ voms-proxy-info --identity --file /tmp/x509up_u160683
+DEBUG 2024-09-17 16:19:28.673 UTC: 	 output : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=fnenna/CN=868185/CN=Felice Nenna
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-17 16:19:28.673 UTC: 	 Getting myproxy life time left for a133b326f2e83ec4c6fd8cd18786edfdbb69b415
+DEBUG 2024-09-17 16:19:28.673 UTC: 	 Executing command :
+ myproxy-info -s myproxy.cern.ch -l a133b326f2e83ec4c6fd8cd18786edfdbb69b415
+DEBUG 2024-09-17 16:19:28.966 UTC: 	 output : username: a133b326f2e83ec4c6fd8cd18786edfdbb69b415
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=fnenna/CN=868185/CN=Felice Nenna
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  timeleft: 718:55:09  (30.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-17 16:19:28.966 UTC: 	 Myproxy is valid: 2588100
+DEBUG 2024-09-17 16:19:28.966 UTC: 	 Result of myproxy credential check:
+  Credential exists on myproxy: username: a133b326f2e83ec4c6fd8cd18786edfdbb69b415  - validity: 29 days, 22:55:00
+DEBUG 2024-09-17 16:19:28.966 UTC: 	 Command use: submit
+DEBUG 2024-09-17 16:19:28.966 UTC: 	 Options use: ['-c', 'crab_DsPhiPi_reco2024_RunF_stream3_cfg.py']
+DEBUG 2024-09-17 16:19:28.966 UTC: 	 Encoded data for curl request: subresource=version
+DEBUG 2024-09-17 16:19:29.020 UTC: 	 CRABClient version: v3.240621
+DEBUG 2024-09-17 16:19:29.020 UTC: 	 Instance is prod
+DEBUG 2024-09-17 16:19:29.020 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2024-09-17 16:19:29.020 UTC: 	 Command api workflow
+DEBUG 2024-09-17 16:19:29.020 UTC: 	 Started submission
+DEBUG 2024-09-17 16:19:29.020 UTC: 	 Working on /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunF/crab_projects/crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3
+DEBUG 2024-09-17 16:19:29.020 UTC: 	 Encoded data for curl request: subresource=backendurls
+DEBUG 2024-09-17 16:19:29.093 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-17 16:19:29.093 UTC: 	 Found CMSSW_14_0_12 for el9_amd64_gcc12 with base /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12
+DEBUG 2024-09-17 16:19:29.093 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-17 16:19:29.093 UTC: 	 Found CMSSW_14_0_12 for el9_amd64_gcc12 with base /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12
+DEBUG 2024-09-17 16:19:29.093 UTC: 	 UNIQUE NAME: tarUUID e4331e92-f1f2-45b5-81a3-f776c9d1e591 
+DEBUG 2024-09-17 16:19:29.093 UTC: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferLogs = False
+config.General.requestName = 'SkimDsPhiPi_2024eraF_stream3_Mini_v3'
+config.General.workArea = 'crab_projects'
+config.General.transferOutputs = True
+config.section_('JobType')
+config.JobType.psetName = '/eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024F_DsPhiPiSkimAndTree_cfg.py'
+config.JobType.allowUndistributedCMSSW = True
+config.JobType.pluginName = 'Analysis'
+config.section_('Data')
+config.Data.unitsPerJob = 50
+config.Data.lumiMask = 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_eraF_Golden.json'
+config.Data.outputDatasetTag = 'SkimDsPhiPi_2024eraF_stream3_Mini_v3'
+config.Data.inputDBS = 'global'
+config.Data.inputDataset = '/ParkingDoubleMuonLowMass3/Run2024F-PromptReco-v1/MINIAOD'
+config.Data.splitting = 'LumiBased'
+config.section_('Site')
+config.Site.ignoreGlobalBlacklist = True
+config.Site.storageSite = 'T2_IT_Bari'
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2024-09-17 16:19:29.093 UTC: 	 self.config.JobType.psetName: /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024F_DsPhiPiSkimAndTree_cfg.py
+INFO 2024-09-17 16:19:29.093 UTC: 	 Importing CMSSW configuration /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024F_DsPhiPiSkimAndTree_cfg.py
+INFO 2024-09-17 16:19:29.798 UTC: 	 Finished importing CMSSW configuration /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024F_DsPhiPiSkimAndTree_cfg.py
+DEBUG 2024-09-17 16:19:29.798 UTC: 	 Writing CMSSW configuration to /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunF/crab_projects/crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3/inputs/PSet.py
+DEBUG 2024-09-17 16:19:29.895 UTC: 	 The following EDM output files will be collected: []
+DEBUG 2024-09-17 16:19:29.896 UTC: 	 The following TFile output files will be collected: ['Tree_PhiPi.root']
+DEBUG 2024-09-17 16:19:29.896 UTC: 	 The following user output files (not listed as PoolOuputModule or TFileService in the CMSSW PSet) will be collected: 
+DEBUG 2024-09-17 16:19:29.896 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-17 16:19:29.896 UTC: 	 Found CMSSW_14_0_12 for el9_amd64_gcc12 with base /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12
+DEBUG 2024-09-17 16:19:29.896 UTC: 	 Making tarball in /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunF/crab_projects/crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3/inputs/e4331e92-f1f2-45b5-81a3-f776c9d1e591default.tgz
+DEBUG 2024-09-17 16:19:29.898 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/bin
+DEBUG 2024-09-17 16:19:29.898 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/bin to tarball
+DEBUG 2024-09-17 16:19:29.901 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/python
+DEBUG 2024-09-17 16:19:29.901 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/python to tarball
+DEBUG 2024-09-17 16:19:29.960 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/cfipython
+DEBUG 2024-09-17 16:19:29.961 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/cfipython to tarball
+DEBUG 2024-09-17 16:19:29.975 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/lib
+DEBUG 2024-09-17 16:19:29.975 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/lib to tarball
+DEBUG 2024-09-17 16:19:30.055 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/biglib
+DEBUG 2024-09-17 16:19:30.056 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/biglib to tarball
+DEBUG 2024-09-17 16:19:30.057 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/module
+DEBUG 2024-09-17 16:19:30.057 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/config/SCRAM/hooks
+DEBUG 2024-09-17 16:19:30.058 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/config/SCRAM/hooks to tarball
+DEBUG 2024-09-17 16:19:30.130 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/MiniAnaTau3Mu/python to tarball
+DEBUG 2024-09-17 16:19:30.145 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/PFCandFilter/python to tarball
+DEBUG 2024-09-17 16:19:30.152 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/RecoMuonAnalyzer/python to tarball
+DEBUG 2024-09-17 16:19:30.165 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/SimpleEventCounter/python to tarball
+DEBUG 2024-09-17 16:19:30.179 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/TrackFromCandProducer/python to tarball
+DEBUG 2024-09-17 16:19:30.185 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiMuNu/python to tarball
+DEBUG 2024-09-17 16:19:30.189 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/python to tarball
+DEBUG 2024-09-17 16:19:30.193 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimTau3Mu/python to tarball
+DEBUG 2024-09-17 16:19:30.336 UTC: 	 Uploading archive /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunF/crab_projects/crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3/inputs/e4331e92-f1f2-45b5-81a3-f776c9d1e591default.tgz (429 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2024-09-17 16:19:30.524 UTC: 	 Encoded data for curl request: subresource=upload&objecttype=sandbox&tarballname=aaef88a3a73ac4442a9807e8e3a48752906c3b3fe6c9730e05a7af1b3120a09d.tar.gz
+DEBUG 2024-09-17 16:19:30.589 UTC: 	 sandbox aaef88a3a73ac4442a9807e8e3a48752906c3b3fe6c9730e05a7af1b3120a09d.tar.gz is already in the S3 store, will not upload again
+DEBUG 2024-09-17 16:19:30.589 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-17 16:19:30.589 UTC: 	 Found CMSSW_14_0_12 for el9_amd64_gcc12 with base /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12
+DEBUG 2024-09-17 16:19:30.589 UTC: 	 Making tarball in /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunF/crab_projects/crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3/inputs/debugFiles.tgz
+DEBUG 2024-09-17 16:19:30.599 UTC: 	 Uploading archive /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunF/crab_projects/crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3/inputs/debugFiles.tgz (1 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2024-09-17 16:19:30.603 UTC: 	 Encoded data for curl request: subresource=upload&objecttype=sandbox&tarballname=c6309097b8e5e5093628c47637e505b0add84ee0521938f95466e586191c4d03.tar.gz
+DEBUG 2024-09-17 16:19:30.737 UTC: 	 Will execute:
+curl -f -v -X POST  -H "User-Agent: CRAB" -F "key=fnenna/sandboxes/c6309097b8e5e5093628c47637e505b0add84ee0521938f95466e586191c4d03.tar.gz" -F "AWSAccessKeyId=715203df6482458ba839e73e6dab634b" -F "policy=eyJleHBpcmF0aW9uIjogIjIwMjQtMDktMTdUMTc6MTk6MzBaIiwgImNvbmRpdGlvbnMiOiBbeyJidWNrZXQiOiAiY3JhYmNhY2hlX3Byb2QifSwgeyJrZXkiOiAiZm5lbm5hL3NhbmRib3hlcy9jNjMwOTA5N2I4ZTVlNTA5MzYyOGM0NzYzN2U1MDViMGFkZDg0ZWUwNTIxOTM4Zjk1NDY2ZTU4NjE5MWM0ZDAzLnRhci5neiJ9XX0=" -F "signature=7AlQsxuv9wpeIFBCCs1pQs40LhQ=" -F "file=@/eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunF/crab_projects/crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3/inputs/debugFiles.tgz" "https://s3.cern.ch/crabcache_prod"
+DEBUG 2024-09-17 16:19:30.861 UTC: 	 exitcode: 0
+stdout: b''
+DEBUG 2024-09-17 16:19:30.861 UTC: 	 sandbox /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunF/crab_projects/crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3/inputs/debugFiles.tgz successfully uploaded to S3
+DEBUG 2024-09-17 16:19:30.862 UTC: 	 Result uploading input files: aaef88a3a73ac4442a9807e8e3a48752906c3b3fe6c9730e05a7af1b3120a09d.tar.gz 
+DEBUG 2024-09-17 16:19:30.862 UTC: 	 Attaching lumi mask https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_eraF_Golden.json to the request
+DEBUG 2024-09-17 16:19:30.862 UTC: 	 Downloading lumi-mask from https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_eraF_Golden.json
+WARNING 2024-09-17 16:19:30.912 UTC: 	 Warning: The following output files will not be published, as they are not EDM files: ['Tree_PhiPi.root']
+DEBUG 2024-09-17 16:19:30.913 UTC: 	 submit() - self.configuration from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferLogs = False
+config.General.requestName = 'SkimDsPhiPi_2024eraF_stream3_Mini_v3'
+config.General.workArea = 'crab_projects'
+config.General.transferOutputs = True
+config.section_('JobType')
+config.JobType.psetName = '/eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024F_DsPhiPiSkimAndTree_cfg.py'
+config.JobType.allowUndistributedCMSSW = True
+config.JobType.pluginName = 'Analysis'
+config.section_('Data')
+config.Data.unitsPerJob = 50
+config.Data.lumiMask = 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_eraF_Golden.json'
+config.Data.outputDatasetTag = 'SkimDsPhiPi_2024eraF_stream3_Mini_v3'
+config.Data.inputDBS = 'global'
+config.Data.inputDataset = '/ParkingDoubleMuonLowMass3/Run2024F-PromptReco-v1/MINIAOD'
+config.Data.splitting = 'LumiBased'
+config.section_('Site')
+config.Site.ignoreGlobalBlacklist = True
+config.Site.storageSite = 'T2_IT_Bari'
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2024-09-17 16:19:30.913 UTC: 	 submit() - self.configreq {'dryrun': 0, 'workflow': 'crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3', 'saveoutput': 1, 'savelogsflag': 0, 'inputdata': '/ParkingDoubleMuonLowMass3/Run2024F-PromptReco-v1/MINIAOD', 'nonvaliddata': 0, 'userfiles': [], 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'useparent': 0, 'ignorelocality': 0, 'splitalgo': 'LumiBased', 'algoargs': 50, 'totalunits': 0, 'publication': 1, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'publishname2': 'SkimDsPhiPi_2024eraF_stream3_Mini_v3', 'jobtype': 'Analysis', 'generator': 'pythia', 'addoutputfiles': [], 'maxjobruntime': 1250, 'numcores': 1, 'maxmemory': 2000, 'priority': 10, 'nonprodsw': 1, 'asyncdest': 'T2_IT_Bari', 'requireaccelerator': 0, 'oneEventMode': 0, 'extrajdl': [], 'ignoreglobalblacklist': 1, 'partialdataset': 0, 'inputblocks': []}
+DEBUG 2024-09-17 16:19:30.913 UTC: 	 submit() - jobconfig {'addoutputfiles': [], 'tfileoutfiles': ['Tree_PhiPi.root'], 'edmoutfiles': [], 'jobarch': 'el9_amd64_gcc12', 'jobsw': 'CMSSW_14_0_12', 'inputdata': '/ParkingDoubleMuonLowMass3/Run2024F-PromptReco-v1/MINIAOD', 'cacheurl': 'https://cmsweb.cern.ch/S3/crabcache_prod', 'cachefilename': 'aaef88a3a73ac4442a9807e8e3a48752906c3b3fe6c9730e05a7af1b3120a09d.tar.gz', 'debugfilename': 'c6309097b8e5e5093628c47637e505b0add84ee0521938f95466e586191c4d03.tar.gz', 'runs': ['382229', '382250', '382255', '382256', '382257', '382258', '382262', '382298', '382299', '382300', '382313', '382314', '382328', '382329', '382343', '382344', '382504', '382568', '382580', '382594', '382595', '382617', '382626', '382649', '382650', '382654', '382655', '382656', '382679', '382684', '382685', '382686', '382725', '382729', '382730', '382750', '382752', '382769', '382770', '382791', '382792', '382794', '382795', '382799', '382810', '382811', '382830', '382834', '382856', '382878', '382913', '382921', '382922', '382924', '382937', '382960', '383028', '383034', '383036', '383134', '383148', '383153', '383155', '383162', '383163', '383173', '383174', '383175', '383247', '383254', '383255', '383275', '383276', '383277', '383323', '383326', '383363', '383365', '383366', '383367', '383368', '383377', '383417', '383418', '383447', '383448', '383449', '383467', '383468', '383485', '383486', '383487', '383496', '383512', '383514', '383536', '383537', '383541', '383629', '383630', '383631', '383647', '383648', '383649', '383650', '383661', '383662', '383669', '383687', '383692', '383693', '383694', '383695', '383712', '383724', '383740', '383741', '383756', '383758', '383767', '383779'], 'lumis': ['1,313', '33,922', '36,132', '1,67', '1,70', '1,191,193,963,965,1150', '1,211,232,273', '50,102', '1,808', '1,1186', '30,418', '1,35,37,296', '33,122', '1,150', '38,2245', '1,319,325,360', '31,143,156,391', '30,437', '32,1200,1202,1743', '24,1429', '1,854', '33,733', '41,399', '32,61,63,514', '1,20,22,235', '33,160,162,1674', '1,394', '1,67,70,296', '37,107', '29,1192', '1,482,492,492', '1,141', '31,210,212,400', '31,66,83,101', '1,52', '1,219,223,533', '1,155,157,710', '32,1565', '1,586', '28,132', '1,80', '1,14', '1,293,296,476', '34,648', '35,79,86,110', '1,396', '34,108', '76,838', '35,455', '34,416,419,888', '41,990,992,2259,2261,2329', '27,405,436,1241', '1,83', '1,247', '42,514', '37,480,482,601', '42,130', '1,666', '1,58', '39,148', '35,571', '31,224', '1,1354,1356,1573,1575,1856', '26,1556', '1,219,221,515', '54,982', '1,354,357,1024', '1,158', '38,145', '34,1261', '1,915', '31,207', '1,292', '1,676', '26,1290', '1,516', '27,769', '1,53', '1,27', '1,176', '27,44,47,1065', '60,338', '31,809', '1,917', '31,504', '1,465', '1,123,125,515,518,1251', '32,208', '1,483,485,1541,1544,2152', '33,109', '1,80,82,115,117,118', '1,1079,1081,2044', '20,200', '32,473,475,1787', '57,195', '30,175,177,194', '1,76', '1,302', '1,190', '1,295', '1,943,946,1677', '40,146', '1,232', '1,342', '1,41', '40,140', '1,181', '13,651', '29,504', '32,374,376,891', '1,155', '1,30', '1,740', '26,1577', '1,192', '34,709', '1,574', '29,1393', '9,33', '4,848,852,1609', '1,173'], 'jobtype': 'Analysis'}
+INFO 2024-09-17 16:19:30.913 UTC: 	 Sending the request to the server at cmsweb.cern.ch
+DEBUG 2024-09-17 16:19:30.913 UTC: 	 Submitting {'dryrun': 0, 'workflow': 'crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3', 'saveoutput': 1, 'savelogsflag': 0, 'inputdata': '/ParkingDoubleMuonLowMass3/Run2024F-PromptReco-v1/MINIAOD', 'nonvaliddata': 0, 'userfiles': [], 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'useparent': 0, 'ignorelocality': 0, 'splitalgo': 'LumiBased', 'algoargs': 50, 'totalunits': 0, 'publication': 1, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'publishname2': 'SkimDsPhiPi_2024eraF_stream3_Mini_v3', 'jobtype': 'Analysis', 'generator': 'pythia', 'addoutputfiles': [], 'maxjobruntime': 1250, 'numcores': 1, 'maxmemory': 2000, 'priority': 10, 'nonprodsw': 1, 'asyncdest': 'T2_IT_Bari', 'requireaccelerator': 0, 'oneEventMode': 0, 'extrajdl': [], 'ignoreglobalblacklist': 1, 'partialdataset': 0, 'inputblocks': [], 'tfileoutfiles': ['Tree_PhiPi.root'], 'edmoutfiles': [], 'jobarch': 'el9_amd64_gcc12', 'jobsw': 'CMSSW_14_0_12', 'cacheurl': 'https://cmsweb.cern.ch/S3/crabcache_prod', 'cachefilename': 'aaef88a3a73ac4442a9807e8e3a48752906c3b3fe6c9730e05a7af1b3120a09d.tar.gz', 'debugfilename': 'c6309097b8e5e5093628c47637e505b0add84ee0521938f95466e586191c4d03.tar.gz', 'runs': ['382229', '382250', '382255', '382256', '382257', '382258', '382262', '382298', '382299', '382300', '382313', '382314', '382328', '382329', '382343', '382344', '382504', '382568', '382580', '382594', '382595', '382617', '382626', '382649', '382650', '382654', '382655', '382656', '382679', '382684', '382685', '382686', '382725', '382729', '382730', '382750', '382752', '382769', '382770', '382791', '382792', '382794', '382795', '382799', '382810', '382811', '382830', '382834', '382856', '382878', '382913', '382921', '382922', '382924', '382937', '382960', '383028', '383034', '383036', '383134', '383148', '383153', '383155', '383162', '383163', '383173', '383174', '383175', '383247', '383254', '383255', '383275', '383276', '383277', '383323', '383326', '383363', '383365', '383366', '383367', '383368', '383377', '383417', '383418', '383447', '383448', '383449', '383467', '383468', '383485', '383486', '383487', '383496', '383512', '383514', '383536', '383537', '383541', '383629', '383630', '383631', '383647', '383648', '383649', '383650', '383661', '383662', '383669', '383687', '383692', '383693', '383694', '383695', '383712', '383724', '383740', '383741', '383756', '383758', '383767', '383779'], 'lumis': ['1,313', '33,922', '36,132', '1,67', '1,70', '1,191,193,963,965,1150', '1,211,232,273', '50,102', '1,808', '1,1186', '30,418', '1,35,37,296', '33,122', '1,150', '38,2245', '1,319,325,360', '31,143,156,391', '30,437', '32,1200,1202,1743', '24,1429', '1,854', '33,733', '41,399', '32,61,63,514', '1,20,22,235', '33,160,162,1674', '1,394', '1,67,70,296', '37,107', '29,1192', '1,482,492,492', '1,141', '31,210,212,400', '31,66,83,101', '1,52', '1,219,223,533', '1,155,157,710', '32,1565', '1,586', '28,132', '1,80', '1,14', '1,293,296,476', '34,648', '35,79,86,110', '1,396', '34,108', '76,838', '35,455', '34,416,419,888', '41,990,992,2259,2261,2329', '27,405,436,1241', '1,83', '1,247', '42,514', '37,480,482,601', '42,130', '1,666', '1,58', '39,148', '35,571', '31,224', '1,1354,1356,1573,1575,1856', '26,1556', '1,219,221,515', '54,982', '1,354,357,1024', '1,158', '38,145', '34,1261', '1,915', '31,207', '1,292', '1,676', '26,1290', '1,516', '27,769', '1,53', '1,27', '1,176', '27,44,47,1065', '60,338', '31,809', '1,917', '31,504', '1,465', '1,123,125,515,518,1251', '32,208', '1,483,485,1541,1544,2152', '33,109', '1,80,82,115,117,118', '1,1079,1081,2044', '20,200', '32,473,475,1787', '57,195', '30,175,177,194', '1,76', '1,302', '1,190', '1,295', '1,943,946,1677', '40,146', '1,232', '1,342', '1,41', '40,140', '1,181', '13,651', '29,504', '32,374,376,891', '1,155', '1,30', '1,740', '26,1577', '1,192', '34,709', '1,574', '29,1393', '9,33', '4,848,852,1609', '1,173']} 
+DEBUG 2024-09-17 16:19:30.914 UTC: 	 Encoded data for curl request: dryrun=0&workflow=crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3&saveoutput=1&savelogsflag=0&inputdata=%2FParkingDoubleMuonLowMass3%2FRun2024F-PromptReco-v1%2FMINIAOD&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&useparent=0&ignorelocality=0&splitalgo=LumiBased&algoargs=50&totalunits=0&publication=1&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&publishname2=SkimDsPhiPi_2024eraF_stream3_Mini_v3&jobtype=Analysis&generator=pythia&maxjobruntime=1250&numcores=1&maxmemory=2000&priority=10&nonprodsw=1&asyncdest=T2_IT_Bari&requireaccelerator=0&oneEventMode=0&ignoreglobalblacklist=1&partialdataset=0&jobarch=el9_amd64_gcc12&jobsw=CMSSW_14_0_12&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2FS3%2Fcrabcache_prod&cachefilename=aaef88a3a73ac4442a9807e8e3a48752906c3b3fe6c9730e05a7af1b3120a09d.tar.gz&debugfilename=c6309097b8e5e5093628c47637e505b0add84ee0521938f95466e586191c4d03.tar.gz&tfileoutfiles=Tree_PhiPi.root&runs=382229&runs=382250&runs=382255&runs=382256&runs=382257&runs=382258&runs=382262&runs=382298&runs=382299&runs=382300&runs=382313&runs=382314&runs=382328&runs=382329&runs=382343&runs=382344&runs=382504&runs=382568&runs=382580&runs=382594&runs=382595&runs=382617&runs=382626&runs=382649&runs=382650&runs=382654&runs=382655&runs=382656&runs=382679&runs=382684&runs=382685&runs=382686&runs=382725&runs=382729&runs=382730&runs=382750&runs=382752&runs=382769&runs=382770&runs=382791&runs=382792&runs=382794&runs=382795&runs=382799&runs=382810&runs=382811&runs=382830&runs=382834&runs=382856&runs=382878&runs=382913&runs=382921&runs=382922&runs=382924&runs=382937&runs=382960&runs=383028&runs=383034&runs=383036&runs=383134&runs=383148&runs=383153&runs=383155&runs=383162&runs=383163&runs=383173&runs=383174&runs=383175&runs=383247&runs=383254&runs=383255&runs=383275&runs=383276&runs=383277&runs=383323&runs=383326&runs=383363&runs=383365&runs=383366&runs=383367&runs=383368&runs=383377&runs=383417&runs=383418&runs=383447&runs=383448&runs=383449&runs=383467&runs=383468&runs=383485&runs=383486&runs=383487&runs=383496&runs=383512&runs=383514&runs=383536&runs=383537&runs=383541&runs=383629&runs=383630&runs=383631&runs=383647&runs=383648&runs=383649&runs=383650&runs=383661&runs=383662&runs=383669&runs=383687&runs=383692&runs=383693&runs=383694&runs=383695&runs=383712&runs=383724&runs=383740&runs=383741&runs=383756&runs=383758&runs=383767&runs=383779&lumis=1%2C313&lumis=33%2C922&lumis=36%2C132&lumis=1%2C67&lumis=1%2C70&lumis=1%2C191%2C193%2C963%2C965%2C1150&lumis=1%2C211%2C232%2C273&lumis=50%2C102&lumis=1%2C808&lumis=1%2C1186&lumis=30%2C418&lumis=1%2C35%2C37%2C296&lumis=33%2C122&lumis=1%2C150&lumis=38%2C2245&lumis=1%2C319%2C325%2C360&lumis=31%2C143%2C156%2C391&lumis=30%2C437&lumis=32%2C1200%2C1202%2C1743&lumis=24%2C1429&lumis=1%2C854&lumis=33%2C733&lumis=41%2C399&lumis=32%2C61%2C63%2C514&lumis=1%2C20%2C22%2C235&lumis=33%2C160%2C162%2C1674&lumis=1%2C394&lumis=1%2C67%2C70%2C296&lumis=37%2C107&lumis=29%2C1192&lumis=1%2C482%2C492%2C492&lumis=1%2C141&lumis=31%2C210%2C212%2C400&lumis=31%2C66%2C83%2C101&lumis=1%2C52&lumis=1%2C219%2C223%2C533&lumis=1%2C155%2C157%2C710&lumis=32%2C1565&lumis=1%2C586&lumis=28%2C132&lumis=1%2C80&lumis=1%2C14&lumis=1%2C293%2C296%2C476&lumis=34%2C648&lumis=35%2C79%2C86%2C110&lumis=1%2C396&lumis=34%2C108&lumis=76%2C838&lumis=35%2C455&lumis=34%2C416%2C419%2C888&lumis=41%2C990%2C992%2C2259%2C2261%2C2329&lumis=27%2C405%2C436%2C1241&lumis=1%2C83&lumis=1%2C247&lumis=42%2C514&lumis=37%2C480%2C482%2C601&lumis=42%2C130&lumis=1%2C666&lumis=1%2C58&lumis=39%2C148&lumis=35%2C571&lumis=31%2C224&lumis=1%2C1354%2C1356%2C1573%2C1575%2C1856&lumis=26%2C1556&lumis=1%2C219%2C221%2C515&lumis=54%2C982&lumis=1%2C354%2C357%2C1024&lumis=1%2C158&lumis=38%2C145&lumis=34%2C1261&lumis=1%2C915&lumis=31%2C207&lumis=1%2C292&lumis=1%2C676&lumis=26%2C1290&lumis=1%2C516&lumis=27%2C769&lumis=1%2C53&lumis=1%2C27&lumis=1%2C176&lumis=27%2C44%2C47%2C1065&lumis=60%2C338&lumis=31%2C809&lumis=1%2C917&lumis=31%2C504&lumis=1%2C465&lumis=1%2C123%2C125%2C515%2C518%2C1251&lumis=32%2C208&lumis=1%2C483%2C485%2C1541%2C1544%2C2152&lumis=33%2C109&lumis=1%2C80%2C82%2C115%2C117%2C118&lumis=1%2C1079%2C1081%2C2044&lumis=20%2C200&lumis=32%2C473%2C475%2C1787&lumis=57%2C195&lumis=30%2C175%2C177%2C194&lumis=1%2C76&lumis=1%2C302&lumis=1%2C190&lumis=1%2C295&lumis=1%2C943%2C946%2C1677&lumis=40%2C146&lumis=1%2C232&lumis=1%2C342&lumis=1%2C41&lumis=40%2C140&lumis=1%2C181&lumis=13%2C651&lumis=29%2C504&lumis=32%2C374%2C376%2C891&lumis=1%2C155&lumis=1%2C30&lumis=1%2C740&lumis=26%2C1577&lumis=1%2C192&lumis=34%2C709&lumis=1%2C574&lumis=29%2C1393&lumis=9%2C33&lumis=4%2C848%2C852%2C1609&lumis=1%2C173
+DEBUG 2024-09-17 16:19:31.035 UTC: 	 Result: {'result': [{'RequestName': '240917_161930:fnenna_crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3'}]}
+INFO 2024-09-17 16:19:31.042 UTC: 	 Success: Your task has been delivered to the prod CRAB3 server.
+INFO 2024-09-17 16:19:31.042 UTC: 	 Task name: 240917_161930:fnenna_crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3
+INFO 2024-09-17 16:19:31.042 UTC: 	 Project dir: crab_projects/crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3
+INFO 2024-09-17 16:19:31.042 UTC: 	 Please use ' crab status -d crab_projects/crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3 ' to check how the submission process proceeds.
+DEBUG 2024-09-17 16:19:31.042 UTC: 	 About to return
+INFO 2024-09-17 16:19:31.054 UTC: 	 Log file is /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunF/crab_projects/crab_SkimDsPhiPi_2024eraF_stream3_Mini_v3/crab.log

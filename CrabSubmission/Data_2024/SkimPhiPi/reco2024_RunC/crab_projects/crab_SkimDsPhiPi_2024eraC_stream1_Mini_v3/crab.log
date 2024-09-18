@@ -1,0 +1,170 @@
+DEBUG 2024-09-17 15:51:55.066 UTC: 	 CRAB Client version: v3.240621
+DEBUG 2024-09-17 15:51:55.067 UTC: 	 Running on: Linux lxplus999.cern.ch 5.14.0-427.28.1.el9_4.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Jul 19 14:40:47 EDT 2024 x86_64 x86_64 x86_64 GNU/Linux - Red Hat Enterprise Linux 9.4 (Plow)
+DEBUG 2024-09-17 15:51:55.067 UTC: 	 Executing command: 'submit'
+DEBUG 2024-09-17 15:51:55.067 UTC: 	 Found CRAB cache file /afs/cern.ch/user/f/fnenna/.crab3
+INFO 2024-09-17 15:51:55.068 UTC: 	 Will use CRAB configuration file crab_DsPhiPi_reco2024_RunC_stream1_cfg.py
+DEBUG 2024-09-17 15:51:55.069 UTC: 	 Loading CRAB configuration file.
+DEBUG 2024-09-17 15:51:55.127 UTC: 	 Will use CRAB plugin ANALYSIS (i.e. will run an analysis job type).
+DEBUG 2024-09-17 15:51:55.169 UTC: 	 Checking credentials
+DEBUG 2024-09-17 15:51:55.171 UTC: 	 Found proxy file /tmp/x509up_u160683
+DEBUG 2024-09-17 15:51:55.171 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2024-09-17 15:51:55.171 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /tmp/x509up_u160683
+DEBUG 2024-09-17 15:51:56.008 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-17 15:51:56.009 UTC: 	 Getting proxy life time left
+DEBUG 2024-09-17 15:51:56.009 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u160683
+DEBUG 2024-09-17 15:51:56.674 UTC: 	 output : 688934
+688934
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-17 15:51:56.674 UTC: 	 Proxy valid for 191:22:14 hours
+DEBUG 2024-09-17 15:51:56.675 UTC: 	 Encoded data for curl request: subresource=delegatedn
+DEBUG 2024-09-17 15:51:56.775 UTC: 	 Registering user credentials on myproxy for /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+DEBUG 2024-09-17 15:51:56.775 UTC: 	 Executing command :
+ voms-proxy-info --identity --file /tmp/x509up_u160683
+DEBUG 2024-09-17 15:51:57.443 UTC: 	 output : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=fnenna/CN=868185/CN=Felice Nenna
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-17 15:51:57.443 UTC: 	 Getting myproxy life time left for a133b326f2e83ec4c6fd8cd18786edfdbb69b415
+DEBUG 2024-09-17 15:51:57.443 UTC: 	 Executing command :
+ myproxy-info -s myproxy.cern.ch -l a133b326f2e83ec4c6fd8cd18786edfdbb69b415
+DEBUG 2024-09-17 15:51:57.747 UTC: 	 output : username: a133b326f2e83ec4c6fd8cd18786edfdbb69b415
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=fnenna/CN=868185/CN=Felice Nenna
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  timeleft: 719:22:40  (30.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-17 15:51:57.748 UTC: 	 Myproxy is valid: 2589720
+DEBUG 2024-09-17 15:51:57.748 UTC: 	 Result of myproxy credential check:
+  Credential exists on myproxy: username: a133b326f2e83ec4c6fd8cd18786edfdbb69b415  - validity: 29 days, 23:22:00
+DEBUG 2024-09-17 15:51:57.748 UTC: 	 Command use: submit
+DEBUG 2024-09-17 15:51:57.748 UTC: 	 Options use: ['-c', 'crab_DsPhiPi_reco2024_RunC_stream1_cfg.py']
+DEBUG 2024-09-17 15:51:57.748 UTC: 	 Encoded data for curl request: subresource=version
+DEBUG 2024-09-17 15:51:57.849 UTC: 	 CRABClient version: v3.240621
+DEBUG 2024-09-17 15:51:57.850 UTC: 	 Instance is prod
+DEBUG 2024-09-17 15:51:57.850 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2024-09-17 15:51:57.850 UTC: 	 Command api workflow
+DEBUG 2024-09-17 15:51:57.850 UTC: 	 Started submission
+DEBUG 2024-09-17 15:51:57.850 UTC: 	 Working on /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunC/crab_projects/crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3
+DEBUG 2024-09-17 15:51:57.850 UTC: 	 Encoded data for curl request: subresource=backendurls
+DEBUG 2024-09-17 15:51:58.014 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-17 15:51:58.014 UTC: 	 Found CMSSW_14_0_12 for el9_amd64_gcc12 with base /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12
+DEBUG 2024-09-17 15:51:58.014 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-17 15:51:58.014 UTC: 	 Found CMSSW_14_0_12 for el9_amd64_gcc12 with base /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12
+DEBUG 2024-09-17 15:51:58.014 UTC: 	 UNIQUE NAME: tarUUID d8cd9e9d-9b07-478d-98d3-1d2d7c71f1b9 
+DEBUG 2024-09-17 15:51:58.014 UTC: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferLogs = False
+config.General.workArea = 'crab_projects'
+config.General.requestName = 'SkimDsPhiPi_2024eraC_stream1_Mini_v3'
+config.General.transferOutputs = True
+config.section_('JobType')
+config.JobType.psetName = '/eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024C_DsPhiPiSkimAndTree_cfg.py'
+config.JobType.allowUndistributedCMSSW = True
+config.JobType.pluginName = 'Analysis'
+config.section_('Data')
+config.Data.outputDatasetTag = 'SkimDsPhiPi_2024eraC_stream1_Mini_v3'
+config.Data.unitsPerJob = 50
+config.Data.lumiMask = 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_eraC_Golden.json'
+config.Data.inputDataset = '/ParkingDoubleMuonLowMass1/Run2024C-PromptReco-v1/MINIAOD'
+config.Data.inputDBS = 'global'
+config.Data.splitting = 'LumiBased'
+config.section_('Site')
+config.Site.ignoreGlobalBlacklist = True
+config.Site.storageSite = 'T2_IT_Bari'
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2024-09-17 15:51:58.014 UTC: 	 self.config.JobType.psetName: /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024C_DsPhiPiSkimAndTree_cfg.py
+INFO 2024-09-17 15:51:58.014 UTC: 	 Importing CMSSW configuration /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024C_DsPhiPiSkimAndTree_cfg.py
+INFO 2024-09-17 15:51:59.694 UTC: 	 Finished importing CMSSW configuration /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024C_DsPhiPiSkimAndTree_cfg.py
+DEBUG 2024-09-17 15:51:59.694 UTC: 	 Writing CMSSW configuration to /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunC/crab_projects/crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3/inputs/PSet.py
+DEBUG 2024-09-17 15:51:59.794 UTC: 	 The following EDM output files will be collected: []
+DEBUG 2024-09-17 15:51:59.794 UTC: 	 The following TFile output files will be collected: ['Tree_PhiPi.root']
+DEBUG 2024-09-17 15:51:59.794 UTC: 	 The following user output files (not listed as PoolOuputModule or TFileService in the CMSSW PSet) will be collected: 
+DEBUG 2024-09-17 15:51:59.794 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-17 15:51:59.794 UTC: 	 Found CMSSW_14_0_12 for el9_amd64_gcc12 with base /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12
+DEBUG 2024-09-17 15:51:59.794 UTC: 	 Making tarball in /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunC/crab_projects/crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3/inputs/d8cd9e9d-9b07-478d-98d3-1d2d7c71f1b9default.tgz
+DEBUG 2024-09-17 15:51:59.799 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/bin
+DEBUG 2024-09-17 15:51:59.799 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/bin to tarball
+DEBUG 2024-09-17 15:51:59.804 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/python
+DEBUG 2024-09-17 15:51:59.804 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/python to tarball
+DEBUG 2024-09-17 15:51:59.961 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/cfipython
+DEBUG 2024-09-17 15:51:59.961 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/cfipython to tarball
+DEBUG 2024-09-17 15:51:59.986 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/lib
+DEBUG 2024-09-17 15:51:59.986 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/lib to tarball
+DEBUG 2024-09-17 15:52:00.180 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/biglib
+DEBUG 2024-09-17 15:52:00.180 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/biglib to tarball
+DEBUG 2024-09-17 15:52:00.183 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/module
+DEBUG 2024-09-17 15:52:00.183 UTC: 	 Checking directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/config/SCRAM/hooks
+DEBUG 2024-09-17 15:52:00.184 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/config/SCRAM/hooks to tarball
+DEBUG 2024-09-17 15:52:00.297 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/MiniAnaTau3Mu/python to tarball
+DEBUG 2024-09-17 15:52:00.334 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/PFCandFilter/python to tarball
+DEBUG 2024-09-17 15:52:00.347 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/RecoMuonAnalyzer/python to tarball
+DEBUG 2024-09-17 15:52:00.376 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/SimpleEventCounter/python to tarball
+DEBUG 2024-09-17 15:52:00.418 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/Plugins/TrackFromCandProducer/python to tarball
+DEBUG 2024-09-17 15:52:00.433 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiMuNu/python to tarball
+DEBUG 2024-09-17 15:52:00.447 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/python to tarball
+DEBUG 2024-09-17 15:52:00.460 UTC: 	 Adding directory /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimTau3Mu/python to tarball
+DEBUG 2024-09-17 15:52:00.700 UTC: 	 Uploading archive /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunC/crab_projects/crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3/inputs/d8cd9e9d-9b07-478d-98d3-1d2d7c71f1b9default.tgz (430 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2024-09-17 15:52:01.015 UTC: 	 Encoded data for curl request: subresource=upload&objecttype=sandbox&tarballname=08bb505fc3bdf845b93449356f7f5e6191c46065adf93d9dc1ff824961bc1f8a.tar.gz
+DEBUG 2024-09-17 15:52:01.122 UTC: 	 sandbox 08bb505fc3bdf845b93449356f7f5e6191c46065adf93d9dc1ff824961bc1f8a.tar.gz is already in the S3 store, will not upload again
+DEBUG 2024-09-17 15:52:01.123 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-17 15:52:01.123 UTC: 	 Found CMSSW_14_0_12 for el9_amd64_gcc12 with base /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12
+DEBUG 2024-09-17 15:52:01.123 UTC: 	 Making tarball in /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunC/crab_projects/crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3/inputs/debugFiles.tgz
+DEBUG 2024-09-17 15:52:01.133 UTC: 	 Uploading archive /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunC/crab_projects/crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3/inputs/debugFiles.tgz (1 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2024-09-17 15:52:01.140 UTC: 	 Encoded data for curl request: subresource=upload&objecttype=sandbox&tarballname=fd683b3365d66823cdc794c87eaf5542fe971eb015fd105f6c1bee795e25d854.tar.gz
+DEBUG 2024-09-17 15:52:01.275 UTC: 	 Will execute:
+curl -f -v -X POST  -H "User-Agent: CRAB" -F "key=fnenna/sandboxes/fd683b3365d66823cdc794c87eaf5542fe971eb015fd105f6c1bee795e25d854.tar.gz" -F "AWSAccessKeyId=715203df6482458ba839e73e6dab634b" -F "policy=eyJleHBpcmF0aW9uIjogIjIwMjQtMDktMTdUMTY6NTI6MDFaIiwgImNvbmRpdGlvbnMiOiBbeyJidWNrZXQiOiAiY3JhYmNhY2hlX3Byb2QifSwgeyJrZXkiOiAiZm5lbm5hL3NhbmRib3hlcy9mZDY4M2IzMzY1ZDY2ODIzY2RjNzk0Yzg3ZWFmNTU0MmZlOTcxZWIwMTVmZDEwNWY2YzFiZWU3OTVlMjVkODU0LnRhci5neiJ9XX0=" -F "signature=oCcq6Qo9o5/Igu2W6rsu0b4cpEg=" -F "file=@/eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunC/crab_projects/crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3/inputs/debugFiles.tgz" "https://s3.cern.ch/crabcache_prod"
+DEBUG 2024-09-17 15:52:01.410 UTC: 	 exitcode: 0
+stdout: b''
+DEBUG 2024-09-17 15:52:01.411 UTC: 	 sandbox /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunC/crab_projects/crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3/inputs/debugFiles.tgz successfully uploaded to S3
+DEBUG 2024-09-17 15:52:01.411 UTC: 	 Result uploading input files: 08bb505fc3bdf845b93449356f7f5e6191c46065adf93d9dc1ff824961bc1f8a.tar.gz 
+DEBUG 2024-09-17 15:52:01.411 UTC: 	 Attaching lumi mask https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_eraC_Golden.json to the request
+DEBUG 2024-09-17 15:52:01.411 UTC: 	 Downloading lumi-mask from https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_eraC_Golden.json
+WARNING 2024-09-17 15:52:01.491 UTC: 	 Warning: The following output files will not be published, as they are not EDM files: ['Tree_PhiPi.root']
+DEBUG 2024-09-17 15:52:01.491 UTC: 	 submit() - self.configuration from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferLogs = False
+config.General.workArea = 'crab_projects'
+config.General.requestName = 'SkimDsPhiPi_2024eraC_stream1_Mini_v3'
+config.General.transferOutputs = True
+config.section_('JobType')
+config.JobType.psetName = '/eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/SkimTools/SkimPhiPi/test/run_Data2024C_DsPhiPiSkimAndTree_cfg.py'
+config.JobType.allowUndistributedCMSSW = True
+config.JobType.pluginName = 'Analysis'
+config.section_('Data')
+config.Data.outputDatasetTag = 'SkimDsPhiPi_2024eraC_stream1_Mini_v3'
+config.Data.unitsPerJob = 50
+config.Data.lumiMask = 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_eraC_Golden.json'
+config.Data.inputDataset = '/ParkingDoubleMuonLowMass1/Run2024C-PromptReco-v1/MINIAOD'
+config.Data.inputDBS = 'global'
+config.Data.splitting = 'LumiBased'
+config.section_('Site')
+config.Site.ignoreGlobalBlacklist = True
+config.Site.storageSite = 'T2_IT_Bari'
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2024-09-17 15:52:01.491 UTC: 	 submit() - self.configreq {'dryrun': 0, 'workflow': 'crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3', 'saveoutput': 1, 'savelogsflag': 0, 'inputdata': '/ParkingDoubleMuonLowMass1/Run2024C-PromptReco-v1/MINIAOD', 'nonvaliddata': 0, 'userfiles': [], 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'useparent': 0, 'ignorelocality': 0, 'splitalgo': 'LumiBased', 'algoargs': 50, 'totalunits': 0, 'publication': 1, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'publishname2': 'SkimDsPhiPi_2024eraC_stream1_Mini_v3', 'jobtype': 'Analysis', 'generator': 'pythia', 'addoutputfiles': [], 'maxjobruntime': 1250, 'numcores': 1, 'maxmemory': 2000, 'priority': 10, 'nonprodsw': 1, 'asyncdest': 'T2_IT_Bari', 'requireaccelerator': 0, 'oneEventMode': 0, 'extrajdl': [], 'ignoreglobalblacklist': 1, 'partialdataset': 0, 'inputblocks': []}
+DEBUG 2024-09-17 15:52:01.491 UTC: 	 submit() - jobconfig {'addoutputfiles': [], 'tfileoutfiles': ['Tree_PhiPi.root'], 'edmoutfiles': [], 'jobarch': 'el9_amd64_gcc12', 'jobsw': 'CMSSW_14_0_12', 'inputdata': '/ParkingDoubleMuonLowMass1/Run2024C-PromptReco-v1/MINIAOD', 'cacheurl': 'https://cmsweb.cern.ch/S3/crabcache_prod', 'cachefilename': '08bb505fc3bdf845b93449356f7f5e6191c46065adf93d9dc1ff824961bc1f8a.tar.gz', 'debugfilename': 'fd683b3365d66823cdc794c87eaf5542fe971eb015fd105f6c1bee795e25d854.tar.gz', 'runs': ['379416', '379420', '379425', '379433', '379442', '379454', '379456', '379470', '379530', '379613', '379617', '379618', '379660', '379661', '379729', '379765', '379774', '379866', '379984', '380001', '380005', '380007', '380029', '380030', '380032', '380033', '380043', '380049', '380051', '380052', '380053', '380056', '380066', '380074', '380115', '380126', '380127', '380128', '380195', '380197', '380235', '380236'], 'lumis': ['1,34,56,88,94,102,107,225', '38,497,499,554', '29,231', '27,47', '19,287', '33,530', '1,1199', '5,804', '30,622', '38,157', '1,130,132,665', '1,360', '60,1566', '1,406', '57,668,670,1522', '43,682,684,1738', '29,213', '26,1375', '36,948', '36,616,618,727', '33,79,82,311,317,1101', '1,129', '35,89', '1,346', '149,167', '1,53', '33,932', '33,903', '1,735', '1,12', '1,128', '1,168', '34,585', '29,840,842,1335', '27,1818', '40,991', '1,535', '1,387', '87,93', '1,357', '32,287', '1,52,59,63'], 'jobtype': 'Analysis'}
+INFO 2024-09-17 15:52:01.491 UTC: 	 Sending the request to the server at cmsweb.cern.ch
+DEBUG 2024-09-17 15:52:01.491 UTC: 	 Submitting {'dryrun': 0, 'workflow': 'crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3', 'saveoutput': 1, 'savelogsflag': 0, 'inputdata': '/ParkingDoubleMuonLowMass1/Run2024C-PromptReco-v1/MINIAOD', 'nonvaliddata': 0, 'userfiles': [], 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'useparent': 0, 'ignorelocality': 0, 'splitalgo': 'LumiBased', 'algoargs': 50, 'totalunits': 0, 'publication': 1, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'publishname2': 'SkimDsPhiPi_2024eraC_stream1_Mini_v3', 'jobtype': 'Analysis', 'generator': 'pythia', 'addoutputfiles': [], 'maxjobruntime': 1250, 'numcores': 1, 'maxmemory': 2000, 'priority': 10, 'nonprodsw': 1, 'asyncdest': 'T2_IT_Bari', 'requireaccelerator': 0, 'oneEventMode': 0, 'extrajdl': [], 'ignoreglobalblacklist': 1, 'partialdataset': 0, 'inputblocks': [], 'tfileoutfiles': ['Tree_PhiPi.root'], 'edmoutfiles': [], 'jobarch': 'el9_amd64_gcc12', 'jobsw': 'CMSSW_14_0_12', 'cacheurl': 'https://cmsweb.cern.ch/S3/crabcache_prod', 'cachefilename': '08bb505fc3bdf845b93449356f7f5e6191c46065adf93d9dc1ff824961bc1f8a.tar.gz', 'debugfilename': 'fd683b3365d66823cdc794c87eaf5542fe971eb015fd105f6c1bee795e25d854.tar.gz', 'runs': ['379416', '379420', '379425', '379433', '379442', '379454', '379456', '379470', '379530', '379613', '379617', '379618', '379660', '379661', '379729', '379765', '379774', '379866', '379984', '380001', '380005', '380007', '380029', '380030', '380032', '380033', '380043', '380049', '380051', '380052', '380053', '380056', '380066', '380074', '380115', '380126', '380127', '380128', '380195', '380197', '380235', '380236'], 'lumis': ['1,34,56,88,94,102,107,225', '38,497,499,554', '29,231', '27,47', '19,287', '33,530', '1,1199', '5,804', '30,622', '38,157', '1,130,132,665', '1,360', '60,1566', '1,406', '57,668,670,1522', '43,682,684,1738', '29,213', '26,1375', '36,948', '36,616,618,727', '33,79,82,311,317,1101', '1,129', '35,89', '1,346', '149,167', '1,53', '33,932', '33,903', '1,735', '1,12', '1,128', '1,168', '34,585', '29,840,842,1335', '27,1818', '40,991', '1,535', '1,387', '87,93', '1,357', '32,287', '1,52,59,63']} 
+DEBUG 2024-09-17 15:52:01.492 UTC: 	 Encoded data for curl request: dryrun=0&workflow=crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3&saveoutput=1&savelogsflag=0&inputdata=%2FParkingDoubleMuonLowMass1%2FRun2024C-PromptReco-v1%2FMINIAOD&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&useparent=0&ignorelocality=0&splitalgo=LumiBased&algoargs=50&totalunits=0&publication=1&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&publishname2=SkimDsPhiPi_2024eraC_stream1_Mini_v3&jobtype=Analysis&generator=pythia&maxjobruntime=1250&numcores=1&maxmemory=2000&priority=10&nonprodsw=1&asyncdest=T2_IT_Bari&requireaccelerator=0&oneEventMode=0&ignoreglobalblacklist=1&partialdataset=0&jobarch=el9_amd64_gcc12&jobsw=CMSSW_14_0_12&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2FS3%2Fcrabcache_prod&cachefilename=08bb505fc3bdf845b93449356f7f5e6191c46065adf93d9dc1ff824961bc1f8a.tar.gz&debugfilename=fd683b3365d66823cdc794c87eaf5542fe971eb015fd105f6c1bee795e25d854.tar.gz&tfileoutfiles=Tree_PhiPi.root&runs=379416&runs=379420&runs=379425&runs=379433&runs=379442&runs=379454&runs=379456&runs=379470&runs=379530&runs=379613&runs=379617&runs=379618&runs=379660&runs=379661&runs=379729&runs=379765&runs=379774&runs=379866&runs=379984&runs=380001&runs=380005&runs=380007&runs=380029&runs=380030&runs=380032&runs=380033&runs=380043&runs=380049&runs=380051&runs=380052&runs=380053&runs=380056&runs=380066&runs=380074&runs=380115&runs=380126&runs=380127&runs=380128&runs=380195&runs=380197&runs=380235&runs=380236&lumis=1%2C34%2C56%2C88%2C94%2C102%2C107%2C225&lumis=38%2C497%2C499%2C554&lumis=29%2C231&lumis=27%2C47&lumis=19%2C287&lumis=33%2C530&lumis=1%2C1199&lumis=5%2C804&lumis=30%2C622&lumis=38%2C157&lumis=1%2C130%2C132%2C665&lumis=1%2C360&lumis=60%2C1566&lumis=1%2C406&lumis=57%2C668%2C670%2C1522&lumis=43%2C682%2C684%2C1738&lumis=29%2C213&lumis=26%2C1375&lumis=36%2C948&lumis=36%2C616%2C618%2C727&lumis=33%2C79%2C82%2C311%2C317%2C1101&lumis=1%2C129&lumis=35%2C89&lumis=1%2C346&lumis=149%2C167&lumis=1%2C53&lumis=33%2C932&lumis=33%2C903&lumis=1%2C735&lumis=1%2C12&lumis=1%2C128&lumis=1%2C168&lumis=34%2C585&lumis=29%2C840%2C842%2C1335&lumis=27%2C1818&lumis=40%2C991&lumis=1%2C535&lumis=1%2C387&lumis=87%2C93&lumis=1%2C357&lumis=32%2C287&lumis=1%2C52%2C59%2C63
+DEBUG 2024-09-17 15:52:01.794 UTC: 	 Result: {'result': [{'RequestName': '240917_155201:fnenna_crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3'}]}
+INFO 2024-09-17 15:52:01.805 UTC: 	 Success: Your task has been delivered to the prod CRAB3 server.
+INFO 2024-09-17 15:52:01.805 UTC: 	 Task name: 240917_155201:fnenna_crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3
+INFO 2024-09-17 15:52:01.805 UTC: 	 Project dir: crab_projects/crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3
+INFO 2024-09-17 15:52:01.805 UTC: 	 Please use ' crab status -d crab_projects/crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3 ' to check how the submission process proceeds.
+DEBUG 2024-09-17 15:52:01.805 UTC: 	 About to return
+INFO 2024-09-17 15:52:01.832 UTC: 	 Log file is /eos/home-f/fnenna/tau3mu/CMSSW_14_0_12/src/CrabSubmission/Data_2024/SkimPhiPi/reco2024_RunC/crab_projects/crab_SkimDsPhiPi_2024eraC_stream1_Mini_v3/crab.log
