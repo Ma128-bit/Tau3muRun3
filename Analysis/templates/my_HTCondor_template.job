@@ -5,5 +5,5 @@ Output = sleep_$(Cluster)_$(Process).stdout
 Error = sleep_$(Cluster)_$(Process).stderr
 Log = sleep_$(Cluster)_$(Process).log
 request_memory = 500
-notify_user = marco.buonsante@ba.infn.it
+notify_user = felice.nenna@ba.infn.it
 Queue

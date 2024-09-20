@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export CVSROOT=:pserver:anonymous@cmscvs.cern.ch:/cvs_server/repositories/CMSSW
-export CVSROOT=":ext:mbuonsan@lxplus.cern.ch:/afs/cern.ch/work/c/cmsbuild/public/cvs/CMSSW"
+export CVSROOT=":ext:fnenna@lxplus.cern.ch:/afs/cern.ch/work/c/cmsbuild/public/cvs/CMSSW"
 export CVS_RSH=ssh
 source /cvmfs/cms.cern.ch/cmsset_default.sh
 
@@ -9,15 +9,15 @@ source /cvmfs/cms.cern.ch/cmsset_default.sh
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/exp_soft/crab/pbs_python-3.5.0/lib
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib
-export STORE=/lustre/cms/store/user/mbuonsan/
+export STORE=/lustre/cms/store/user/fnenna/
 
-cd /lustrehome/mbuonsante/Tau_3mu/Ntuple/CMSSW_13_0_13/src/Analysis
+cd /lustrehome/felicenenna/tau3mu/CMSSW_14_0_12/src/Analysis
 
 eval `scramv1 runtime -sh`
 #set env. variables if needed
 export HOME=/cvmfs/cms.cern.ch/slc7_amd64_gcc630/lcg/root/6.10.08/etc/
 
-cd /lustrehome/mbuonsante/Tau_3mu/Ntuple/CMSSW_13_0_13/src/Analysis
+cd /lustrehome/felicenenna/tau3mu/CMSSW_14_0_12/src/Analysis
 
 #compile
 #g++ -I $ROOTSYS/include Analysis_chunk*.cpp `root-config --glibs` `root-config --libs` `root-config --cflags`  -L $ROOTSYS/lib -o executable*
