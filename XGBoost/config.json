@@ -12,9 +12,9 @@
         "d0sig",
         "Ptmu3",
         "d0sig_max",
-        "MVASoft1",
-        "MVASoft2",
-        "MVASoft3",
+        "privateMVA_mu1",
+        "privateMVA_mu2",
+        "privateMVA_mu3",
         "Pt_tripl"
     ],
     "spectator_variables": [
@@ -22,6 +22,7 @@
         "run",
         "lumi",
         "isMC",
+        "Eta_tripl",
         "tripletMass",
         "category_v2",
         "weight",
