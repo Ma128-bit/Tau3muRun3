@@ -163,16 +163,51 @@ double get_MuonSF_err(const TString& ID, const double pt, const double eta, TH2F
     int ieta = SF->GetXaxis()->FindBin(std::abs(eta));
     return SF->GetBinError(ieta, ipt);
 }
+double get_MuonSF_perYear(const TString& ID, const int year, const double pt, const double eta, TH2F* SF_2022, TH2F* SF_2023){
+    TH2F* SF = nullptr;
+    if (ID.Contains("Data")) {return 1;}
+    if (year==2022) { SF = SF_2022;} 
+    else if (year==2023) { SF = SF_2023;} 
+    else return 1;
+    if(pt>30) return 1;
+    int ipt = SF->GetYaxis()->FindBin(pt);
+    int ieta = SF->GetXaxis()->FindBin(std::abs(eta));
+    return SF->GetBinContent(ieta, ipt);
+}
+double get_MuonSF_err_perYear(const TString& ID, const int year, const double pt, const double eta, TH2F* SF_2022, TH2F* SF_2023){
+    TH2F* SF = nullptr;
+    if (ID.Contains("Data")) {return 0;}
+    if (year == 2022) { SF = SF_2022;} 
+    else if (year == 2023) { SF = SF_2023;} 
+    else return 0;
+    if(pt>30) return 0;
+    int ipt = SF->GetYaxis()->FindBin(pt);
+    int ieta = SF->GetXaxis()->FindBin(std::abs(eta));
+    return SF->GetBinError(ieta, ipt);
+}
 struct SF_WeightsComputer{
     TH2F *h2D_1;
     TH2F *h2D_2;
     bool flag;
     SF_WeightsComputer(TH2F *h1, TH2F *h2, bool f) : h2D_1(h1), h2D_2(h2), flag(f)  {}
-    float operator()(const TString& ID, const double pt, const double eta) {
-        if (!flag) return get_MuonSF(ID, pt, eta, h2D_1, h2D_2);
-        else return get_MuonSF_err(ID, pt, eta, h2D_1, h2D_2);
+    float operator()(const TString& ID, const int year, const double pt, const double eta) {
+        if (!flag) return get_MuonSF_perYear(ID, year, pt, eta, h2D_1, h2D_2);
+        else return get_MuonSF_err_perYear(ID, year, pt, eta, h2D_1, h2D_2);
     }
 };
+struct PV_WeightsComputer{
+    TH1F *histo;
+    bool flag;
+    PV_WeightsComputer(TH1F *h, bool f): histo(h), flag(f) {}
+    float operator()(const TString& ID, const double nVtx) {
+        if (ID.Contains("Data") && flag==false) {return 1;}
+        if (ID.Contains("Data") && flag==true) {return 0;}
+        int nV = histo->GetXaxis()->FindBin(nVtx);
+        if (!flag) { return histo->GetBinContent(nV);}
+        else { return histo->GetBinError(nV);}
+    }
+};
+/*
 struct PV_WeightsComputer{
     std::vector<TString> name;
     std::vector<TH1F*> histo;
@@ -192,5 +227,4 @@ struct PV_WeightsComputer{
         }
     }
 };
-
-
+*/

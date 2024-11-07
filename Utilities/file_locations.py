@@ -1,6 +1,7 @@
-single_mu_SF_preE = "/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/MacroAnalysis/GM_PF_SF/SF_preE.root"
-single_mu_SF_postE = "/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/MacroAnalysis/GM_PF_SF/SF_postE.root"
-PV_SFs = "/lustrehome/mbuonsante/Tau_3mu/CC_etc/CMSSW_13_0_13/src/PV_Histo/histogram_ratio.root"
+single_mu_SF_2022 = "./SF_new/NUM_MediumAndGlobal_DEN_Tracks_abseta_pt_2022.root"
+single_mu_SF_2023 = "./SF_new/NUM_MediumAndGlobal_DEN_Tracks_abseta_pt_2023.root"
+PV_SFs_2022 = "./PileUp/ratio_histo_2022.root"
+PV_SFs_2023 = "./PileUp/ratio_histo_2023.root"
 
 data_path = "/lustrehome/mbuonsante/Tau_3mu/Ntuple/CMSSW_13_0_13/src/Analysis/JobAdd_perEra"
 

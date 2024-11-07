@@ -1,6 +1,7 @@
 from ROOT import TChain, gROOT, gDirectory, TFile, TCanvas, TH1F, kRed
 gROOT.SetBatch(True)
 import math, os, sys, subprocess, argparse
+from file_locations import *
 """
 subprocess.run(["mkdir", "PileUp"])
 subprocess.run(['wget', '-O', 'PileUp/PU_MC2022.root', 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/PileUp/BCDEFG/pileupHistogram-Cert_Collisions2022_355100_362760_GoldenJson-13p6TeV-69200ub-99bins.root'])
@@ -11,32 +12,48 @@ subprocess.run(['wget', '-O', 'PileUp/PU_MC2023.root', 'https://cms-service-dqmd
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="")
     parser.add_argument("--year", type=str, required=True, help="2022 or 2023")
-    parser.add_argument("--label", type=str, required=True, help="")
     args = parser.parse_args()
     year = args.year
-    label = args.label
     
     file = TFile.Open("PileUp/PU_MC"+year+".root")
     hist_Data = file.Get("pileup")
     n_bins = hist_Data.GetNbinsX()
     x_min = hist_Data.GetXaxis().GetXmin()
     x_max = hist_Data.GetXaxis().GetXmax()
-    
+
+    print(n_bins, x_min, x_max)
     chain1 = TChain("FinalTree")
-    chain1.Add("../Analysis/FinalFiles_B4mu_"+label+"/Analyzed_MC_Bd_4mu_"+year+".root")
-    chain1.Add("../Analysis/FinalFiles_B4mu_"+label+"/Analyzed_MC_Bs_4mu_"+year+".root")
-
     chain2 = TChain("FinalTree")
-    chain2.Add("../Analysis/FinalFiles_B4mu_"+label+"/Analyzed_MC_BsJPsiPhi_"+year+".root")
+    if year=="2022":
+        chain1.Add(MC2022_B0_pre)
+        chain1.Add(MC2022_B0_post)
+        chain1.Add(MC2022_Bp_pre)
+        chain1.Add(MC2022_Bp_post)
+        chain1.Add(MC2022_Ds_pre)
+        chain1.Add(MC2022_Ds_post)
 
-    print(f"nPileUpInt>>h_MC({n_bins},{x_min},{x_max})")
+        chain2.Add(MC2022_DsPhiPi_pre)
+        chain2.Add(MC2022_DsPhiPi_post)
+                
+    if year=="2023":
+        chain1.Add(MC2023_B0_pre)
+        chain1.Add(MC2023_B0_post)
+        chain1.Add(MC2023_Bp_pre)
+        chain1.Add(MC2023_Bp_post)
+        chain1.Add(MC2023_Ds_pre)
+        chain1.Add(MC2023_Ds_post)
+
+        chain2.Add(MC2023_DsPhiPi_pre)
+        chain2.Add(MC2023_DsPhiPi_post)
+
+    print(f"puFactor>>h_MC({n_bins},{x_min},{x_max})")
     
-    chain1.Draw(f"nPileUpInt>>h_MC({n_bins},{x_min},{x_max})")
+    chain1.Draw(f"puFactor>>h_MC({n_bins},{x_min},{x_max})")
     hist_MC= gDirectory.Get("h_MC") 
 
-    chain2.Draw(f"nPileUpInt>>h_MC2({n_bins},{x_min},{x_max})")
+    chain2.Draw(f"puFactor>>h_MC2({n_bins},{x_min},{x_max})")
     hist_MC2= gDirectory.Get("h_MC2") 
-
+    
     hist_Data.Scale(1/hist_Data.Integral())
     hist_MC.Scale(1/hist_MC.Integral())
     hist_MC2.Scale(1/hist_MC2.Integral())

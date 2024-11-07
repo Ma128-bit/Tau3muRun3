@@ -71,7 +71,7 @@ def load_df(isTau3mu, year, treename):
 
 def check_type():
     parser = argparse.ArgumentParser(description="Set tau3mu or control")
-    parser.add_argument("--type", type=str, help="tau3mu or control")
+    parser.add_argument("--type", type=str, help="tau3mu202X or control202X")
     args = parser.parse_args()
     type = args.type
     if "tau3mu" in type:
@@ -97,19 +97,29 @@ if __name__ == "__main__":
     df = df.DefinePerSample("weight_CC", "add_weight_CC(rdfslot_, rdfsampleinfo_)")
     df = df.DefinePerSample("weight_CC_err", "add_weight_CC_err(rdfslot_, rdfsampleinfo_)")
 
-    SF_f1 = TFile.Open(single_mu_SF_preE)
-    SF_f2 = TFile.Open(single_mu_SF_postE)
-    SF_pre = SF_f1.Get("NUM_GlobalMuons_PF_DEN_genTracks_abseta_pt")
-    SF_post = SF_f2.Get("NUM_GlobalMuons_PF_DEN_genTracks_abseta_pt")
+    SF_f1 = TFile.Open(single_mu_SF_2022)
+    SF_f2 = TFile.Open(single_mu_SF_2023)
+    SF_2022 = SF_f1.Get("NUM_MediumAndGlobal_DEN_Tracks_abseta_pt")
+    SF_2023 = SF_f2.Get("NUM_MediumAndGlobal_DEN_Tracks_abseta_pt")
 
-    df = df.Define("Muon1_SF", SF_WeightsComputer(SF_pre, SF_post, False), ["ID", "Ptmu1", "Etamu1"])
-    df = df.Define("Muon2_SF", SF_WeightsComputer(SF_pre, SF_post, False), ["ID", "Ptmu2", "Etamu2"])
-    df = df.Define("Muon1_SF_err", SF_WeightsComputer(SF_pre, SF_post, True), ["ID", "Ptmu1", "Etamu1"])
-    df = df.Define("Muon2_SF_err", SF_WeightsComputer(SF_pre, SF_post, True), ["ID", "Ptmu2", "Etamu2"])
+    df = df.Define("Muon1_SF", SF_WeightsComputer(SF_2022, SF_2023, False), ["ID", "year", "Ptmu1", "Etamu1"])
+    df = df.Define("Muon2_SF", SF_WeightsComputer(SF_2022, SF_2023, False), ["ID", "year", "Ptmu2", "Etamu2"])
+    df = df.Define("Muon1_SF_err", SF_WeightsComputer(SF_2022, SF_2023, True), ["ID", "year", "Ptmu1", "Etamu1"])
+    df = df.Define("Muon2_SF_err", SF_WeightsComputer(SF_2022, SF_2023, True), ["ID", "year", "Ptmu2", "Etamu2"])
     if isTau3mu==True:
-        df = df.Define("Muon3_SF", SF_WeightsComputer(SF_pre, SF_post, False), ["ID", "Ptmu3", "Etamu3"])
-        df = df.Define("Muon3_SF_err", SF_WeightsComputer(SF_pre, SF_post, True), ["ID", "Ptmu3", "Etamu3"])
+        df = df.Define("Muon3_SF", SF_WeightsComputer(SF_2022, SF_2023, False), ["ID", "year", "Ptmu3", "Etamu3"])
+        df = df.Define("Muon3_SF_err", SF_WeightsComputer(SF_2022, SF_2023, True), ["ID", "year", "Ptmu3", "Etamu3"])
 
+    
+    histo_file = TFile.Open("PileUp/ratio_histo_"+str(year)+".root")
+    if isTau3mu==True:
+        histo = histo_file.Get("pileUp_ratio_signal_"+str(year))
+    else:
+        histo = histo_file.Get("pileUp_ratio_control_"+str(year))
+    
+    df = df.Define("weight_pileUp", PV_WeightsComputer(histo, False), ["ID", "puFactor"])
+    df = df.Define("weight_pileUp_err", PV_WeightsComputer(histo, True), ["ID", "puFactor"])    
+    """
     histo_file = TFile.Open(PV_SFs)
     h_vectors = std.vector(TH1F)()
     h_name = std.vector(TString)()
@@ -120,7 +130,8 @@ if __name__ == "__main__":
     
     df = df.Define("weight_nVtx", PV_WeightsComputer(h_name, h_vectors, False), ["ID", "nVtx"])
     df = df.Define("weight_nVtx_err", PV_WeightsComputer(h_name, h_vectors, True), ["ID", "nVtx"])    
-
+    """
+    
     if not os.path.exists("ROOTFiles"):
         subprocess.run(["mkdir", "ROOTFiles"])
 
@@ -138,13 +149,13 @@ if __name__ == "__main__":
         df = df.Filter("(abs(dimu_OS1-1.019)>0.033 && category==0) || (abs(dimu_OS1-1.019)>0.045 && category==1) || (abs(dimu_OS1-1.019)>0.056 && category==2)")
         df = df.Filter("(abs(dimu_OS2-1.019)>0.033 && category==0) || (abs(dimu_OS2-1.019)>0.045 && category==1) || (abs(dimu_OS2-1.019)>0.056 && category==2)")
         
-        b_weights = ["ID", "year", "weight", "weight_MC", "weight_CC", "weight_CC_err", "Muon3_SF","Muon2_SF","Muon1_SF","Muon3_SF_err","Muon2_SF_err","Muon1_SF_err","weight_nVtx", "weight_nVtx_err", "training_weight", "combine_weight"]
-        df = df.Define("training_weight", "weight_MC * weight_CC * Muon3_SF * weight_nVtx")
-        df = df.Define("combine_weight", "weight * weight_CC * Muon3_SF * weight_nVtx")
+        b_weights = ["ID", "year", "weight", "weight_MC", "weight_CC", "weight_CC_err", "Muon3_SF","Muon2_SF","Muon1_SF","Muon3_SF_err","Muon2_SF_err","Muon1_SF_err","weight_pileUp", "weight_pileUp_err", "training_weight", "combine_weight"]
+        df = df.Define("training_weight", "weight_MC * weight_CC * Muon3_SF * weight_pileUp")
+        df = df.Define("combine_weight", "weight * weight_CC * Muon3_SF * weight_pileUp")
         df.Snapshot("FinalTree", "ROOTFiles/AllData"+str(year)+".root", branches+branches_tau3mu+b_weights)
     else:
-        b_weights = ["ID", "year", "weight","Muon1_SF","Muon2_SF","Muon1_SF_err","Muon2_SF_err","weight_nVtx", "weight_nVtx_err", "control_weight"]
-        df = df.Define("control_weight", "weight * weight_nVtx")
+        b_weights = ["ID", "year", "weight","Muon1_SF","Muon2_SF","Muon1_SF_err","Muon2_SF_err","weight_pileUp", "weight_pileUp_err", "control_weight"]
+        df = df.Define("control_weight", "weight * weight_pileUp")
         df.Snapshot("FinalTree", "ROOTFiles/AllControl"+str(year)+".root", branches+b_weights)
     
     print("Performed ",df.GetNRuns()," loops")
