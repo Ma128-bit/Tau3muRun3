@@ -19,9 +19,10 @@ Modify `file_locations.py` to specify the locations of your files
   * Options: `--year` : `2022` or `2023` 
   * Out: Mass_Fits directories with invariant mass fits and yield in csv
 
-* `PV_mkIsto.py`
-  * Run as: `python3 PV_mkIsto.py`
-  * Out: PV_Histo directory with nVTx histograms for data and MC and their ratio
+* `PUreweight.py`
+  * Run as: `python3 PUreweight.py --year 2022`
+  * Options: `--year` : `2022` or `2023` 
+  * Out: Compute the ratio of the PU distribution in data and MC (The first time you run it, remember to uncomment the first lines)
 
 * `New_Ntuple.py`
   * Before running it: make sure you have set the correct values for the variables in `cpp_library.h`.
