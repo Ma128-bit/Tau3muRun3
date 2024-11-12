@@ -155,7 +155,7 @@ if __name__ == "__main__":
         df.Snapshot("FinalTree", "ROOTFiles/AllData"+str(year)+".root", branches+branches_tau3mu+b_weights)
     else:
         b_weights = ["ID", "year", "weight","Muon1_SF","Muon2_SF","Muon1_SF_err","Muon2_SF_err","weight_pileUp", "weight_pileUp_err", "control_weight"]
-        df = df.Define("control_weight", "weight * weight_pileUp")
+        df = df.Define("control_weight", "weight * weight_pileUp * Muon3_SF")
         df.Snapshot("FinalTree", "ROOTFiles/AllControl"+str(year)+".root", branches+b_weights)
     
     print("Performed ",df.GetNRuns()," loops")
