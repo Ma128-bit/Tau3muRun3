@@ -203,7 +203,8 @@ private:
     TTree*      tree_;
     std::vector<float>  MuonPt, MuonEta, MuonPhi;
     std::vector<double> MuonEnergy,  MuonCharge;
-    std::vector<int> GenParticle_PdgId, GenParticle_MotherPdgId, GenParticle_isDs, GenParticle_isB, GenParticle_isBdecay;
+    std::vector<int> GenParticle_PdgId, GenParticle_MotherPdgId, GenParticle_isDs_mother, GenParticle_isDs_daughters;
+    std::vector<int> evt_isPrompt;
     std::vector<double> GenParticle_Pt, GenParticle_Eta, GenParticle_Phi;
     
     //Vtx position
@@ -871,80 +872,90 @@ DsPhiPiTreeMakerMINI::analyze(const edm::Event& iEvent, const edm::EventSetup& i
         uint j=0;
         uint ngenP=genParticles->size();
         //cout<<"****************GenLevel Info Begin********************"<<endl;
+        uint isPrompt=-1; //0 is prompt; 1 is not prompt
+        int isDs_daughters = -1; //-1:not Ds //1:isDs->phi(mumu)pi
+        int isDs_mother = -1; //-1:not Ds //1:is prompt pp->Ds//2:is D from B decays
+        int phi_index;
         for(edm::View<reco::GenParticle>::const_iterator gp=genParticles->begin(); gp!=genParticles->end(), j<ngenP; ++gp , ++j){
             //if(fabs(gp->pdgId())==15) tauRaw = j;
-            int isDs = -1; //-1:not Ds //0:is not prompt Ds//1:is prompt pp->Ds//2:is D from B decays
-            int isB = -1; //-1:not B //0:is not prompt B//1:is prompt B
-            int isBdecay = -1; //-1:not B //0:isB //1: is B to Ds//2: is B to anything else
-            if( fabs(gp->pdgId()) == 511 || fabs(gp->pdgId()) == 521 || fabs(gp->pdgId()) == 531 ) { //B0 or B+ or Bs found
-                //cout<<"B meson"<<endl;
-                isB=0;
-                isBdecay=0;
-                for(uint t=0; t<gp->numberOfMothers(); t++) {
-                    cout<<"  gp->mother("<<t<<")->pdgId() = "<<gp->mother(t)->pdgId()<<endl;
-                    if( fabs(gp->mother(t)->pdgId()) == 513 || fabs(gp->mother(t)->pdgId()) == 523 || fabs(gp->mother(t)->pdgId()) == 533 || fabs(gp->mother(t)->pdgId()) == 535 ) { //B*
-                        for(uint i=0; i<gp->mother(t)->numberOfMothers(); i++) {
-                            //cout<<"    gp->mother("<<t<<")->mother("<<i<<")->pdgId() = "<<gp->mother(t)->mother(i)->pdgId()<<endl;
-                            if(fabs(gp->mother(t)->mother(i)->pdgId())==5) { //b quark
-                                //cout<<"    prompt"<<endl;
-                                isB=1;
-                            }
-                        }
-                    }else{
-                        if(fabs(gp->mother(t)->pdgId()) == 5){ //b quark
-                            //cout<<"    prompt"<<endl;
-                            isB=1;
-                        }
-                    }
-                } 
-                //cout<<"B->"<<endl;
-                for(uint b=0; b<gp->numberOfDaughters(); b++) {
-                    if ( fabs(gp->daughter(b)->pdgId()) == 431 || fabs(gp->daughter(b)->pdgId()) == 433 || fabs(gp->daughter(b)->pdgId()) == 435 ) {
-                        //cout<<"   Ds"<<endl;
-                        isBdecay=1;
-                    }else isBdecay=2;
-                }
-            }
+            int isPhi = -1; //-1: notPhi; 0: isPhi but not ->2mu ;1: phi->2mu
+            bool isPi = false;
+            phi_index = -1;
             if ( fabs(gp->pdgId()) == 431 ) { //Ds
+            isPi = false;
                //cout<<"D_s meson"<<endl;
-               isDs=0;
-               for(uint t=0; t<gp->numberOfMothers(); t++) {
+               //se ha 2 figlie
+               if(gp->numberOfDaughters()>=2){
+                //if one is a phi
+                //I save the index of the phi
+                for(uint l=0; l<gp->numberOfDaughters(); l++) {
+                if (fabs(gp->daughter(l)->pdgId())==333){
+                    phi_index = l;
+                    isPhi = 0;
+                    cout<<"isPhi"<<endl;
+                    if (gp->daughter(phi_index)->numberOfDaughters()>=2){
+                    int n_muons = 0;
+                    for(uint t=0; t<gp->daughter(phi_index)->numberOfDaughters(); t++) {
+                        if (fabs(gp->daughter(phi_index)->daughter(t)->pdgId())==13){
+                                n_muons++;
+                            }
+                    }
+                    if (n_muons>=2) isPhi=+1;
+                }
+                }
+                else{
+                    if (fabs(gp->daughter(l)->pdgId())==211){
+                        isPi = true;
+                }
+                }
+                }
+                if (isPi&&isPhi==+1){
+                    isDs_daughters = +1;
+                }
+                //if the phi decays into two muons
+                //ci può essere anche un fotone emesso insieme ai due muoni
+                // loop sulle figlie
+                //se le figlie sono phi->2mu e pi
+                }//end if sulle due figlie
+                // vediamo se si tratta di un decay prompt (isDs = 2) o non-prompt (isDs = 3)
+               //loop sulle madri
+               for(uint w=0; w<gp->numberOfMothers(); w++) {
                    //cout<<"  gp->mother("<<t<<")->pdgId() = "<<gp->mother(t)->pdgId()<<endl;
-                   if( fabs(gp->mother(t)->pdgId()) == 433 || fabs(gp->mother(t)->pdgId()) == 435 ) { //D*
-                       for(uint i=0; i<gp->mother(t)->numberOfMothers(); i++) {
+                   if( fabs(gp->mother(w)->pdgId()) == 433 || fabs(gp->mother(w)->pdgId()) == 435 || fabs(gp->mother(w)->pdgId()) == 10431 ) { //D*
+                       for(uint i=0; i<gp->mother(w)->numberOfMothers(); i++) {
                            //cout<<"    gp->mother("<<t<<")->mother("<<i<<")->pdgId() = "<<gp->mother(t)->mother(i)->pdgId()<<endl;
-                           if(fabs(gp->mother(t)->mother(i)->pdgId())==3 || fabs(gp->mother(t)->mother(i)->pdgId())==4) { //s or c quark
-                             cout<<"    prompt"<<endl;
-                             isDs=1;
+                        if(fabs(gp->mother(w)->mother(i)->pdgId())==2212 || (fabs(gp->mother(w)->mother(i)->pdgId())>=1&&fabs(gp->mother(w)->mother(i)->pdgId())<9)||fabs(gp->mother(w)->mother(i)->pdgId())==21||fabs(gp->mother(w)->mother(i)->pdgId())==2101||fabs(gp->mother(w)->mother(i)->pdgId())==2103||fabs(gp->mother(w)->mother(i)->pdgId())==2203) { //p or (udscbt or g) quarks hadronization                             cout<<"    prompt"<<endl;
+                             isDs_mother=1;
                            }else{
-                             if(fabs(gp->mother(t)->mother(i)->pdgId())==521 || fabs(gp->mother(t)->mother(i)->pdgId())==511 || fabs(gp->mother(t)->mother(i)->pdgId())==531) {
+                             if(fabs(gp->mother(w)->mother(i)->pdgId())==521 || fabs(gp->mother(w)->mother(i)->pdgId())==511 || fabs(gp->mother(w)->mother(i)->pdgId())==531 || fabs(gp->mother(w)->mother(i)->pdgId())==5122 || fabs(gp->mother(w)->mother(i)->pdgId())==5132 || fabs(gp->mother(w)->mother(i)->pdgId())==5232) {
                                 cout<<"    from B decay"<<endl;
-                                isDs=2;
+                                isDs_mother=2;
                              }
                           }
                        }
                    }else{
-                      if(fabs(gp->mother(t)->pdgId())==3 || fabs(gp->mother(t)->pdgId())==4) { //s or c quark
+                      if(fabs(gp->mother(w)->pdgId())==2212 || (fabs(gp->mother(w)->pdgId())>=1&&fabs(gp->mother(w)->pdgId())<9)||fabs(gp->mother(w)->pdgId())==21||fabs(gp->mother(w)->pdgId())==2101||fabs(gp->mother(w)->pdgId())==2103||fabs(gp->mother(w)->pdgId())==2203) { //p or (udsc) quarks hadronization
                          cout<<"    prompt"<<endl;
-                         isDs=1;
+                         isDs_mother=1;
                       }else{
-                         if(fabs(gp->mother(t)->pdgId())==521 || fabs(gp->mother(t)->pdgId())==511 || fabs(gp->mother(t)->pdgId())==531 ){
+                         if(fabs(gp->mother(w)->pdgId())==521 || fabs(gp->mother(w)->pdgId())==511 || fabs(gp->mother(w)->pdgId())==531 || fabs(gp->mother(w)->pdgId())==5122 || fabs(gp->mother(w)->pdgId())==5132 || fabs(gp->mother(w)->pdgId())==5232){
                             cout<<"    from B decay"<<endl;
-                            isDs=2;
+                            isDs_mother=2;
                          }
                       }
                    }
-               }
-            }
+               }//loop sulle madri
 
+            }//if Ds
+            if (isDs_daughters == +1 && isDs_mother == +1) isPrompt = 0;
+            if (isDs_daughters == +1 && isDs_mother == +2) isPrompt = +1;
             if(fabs(gp->pdgId())==13 || fabs(gp->pdgId())==15  || fabs(gp->pdgId())==11 || fabs(gp->pdgId())==211 || fabs(gp->pdgId())==321 ||  fabs(gp->pdgId())==12  || fabs(gp->pdgId())==14 || fabs(gp->pdgId())==16 || fabs(gp->pdgId())==431 || fabs(gp->pdgId())==333 || fabs(gp->pdgId())==511 || fabs(gp->pdgId())==521) {
                 GenParticle_PdgId.push_back(gp->pdgId());
                 GenParticle_Pt.push_back(gp->pt());
                 GenParticle_Eta.push_back(gp->eta());
                 GenParticle_Phi.push_back(gp->phi());
-                GenParticle_isDs.push_back(isDs);
-                GenParticle_isB.push_back(isB);
-                GenParticle_isBdecay.push_back(isBdecay);
+                GenParticle_isDs_daughters.push_back(isDs_daughters);
+                GenParticle_isDs_mother.push_back(isDs_mother);
 
                 //if(fabs(gp->pdgId())==13 && gp->numberOfMothers() && fabs(gp->mother(0)->pdgId()) ==333 ){
                 //    cout<<"Mu from phi pt="<<gp->pt()<<" vz="<<gp->vz()<<endl;
@@ -953,6 +964,7 @@ DsPhiPiTreeMakerMINI::analyze(const edm::Event& iEvent, const edm::EventSetup& i
                 }else{ GenParticle_MotherPdgId.push_back(-99); }
             }
         }//loop genParticle
+    evt_isPrompt.push_back(isPrompt);
     }//isMC
 
     PVCollection_Size = vertices->size();
@@ -2067,10 +2079,10 @@ DsPhiPiTreeMakerMINI::analyze(const edm::Event& iEvent, const edm::EventSetup& i
     GenParticle_Pt.clear();
     GenParticle_Eta.clear();
     GenParticle_Phi.clear();
-    GenParticle_isDs.clear();
-    GenParticle_isB.clear();
-    GenParticle_isBdecay.clear();
+    GenParticle_isDs_mother.clear();
+    GenParticle_isDs_daughters.clear();
     GenParticle_MotherPdgId.clear();
+    evt_isPrompt.clear();
     
     MuonCollectionSize =0;
     MuonPt.clear();
@@ -2473,10 +2485,10 @@ void DsPhiPiTreeMakerMINI::beginJob() {
     tree_->Branch("GenParticle_Pt", &GenParticle_Pt);
     tree_->Branch("GenParticle_Eta", &GenParticle_Eta);
     tree_->Branch("GenParticle_Phi", &GenParticle_Phi);
-    tree_->Branch("GenParticle_isDs", &GenParticle_isDs);
-    tree_->Branch("GenParticle_isB", &GenParticle_isB);
-    tree_->Branch("GenParticle_isBdecay", &GenParticle_isBdecay);
+    tree_->Branch("GenParticle_isDs_mother", &GenParticle_isDs_mother);
+    tree_->Branch("GenParticle_isDs_daughters", &GenParticle_isDs_daughters);
     tree_->Branch("GenParticle_MotherPdgId", &GenParticle_MotherPdgId);
+    tree_->Branch("evt_isPrompt", &evt_isPrompt);
     
     tree_->Branch("MuonCollectionSize",&MuonCollectionSize);
     tree_->Branch("MuonPt",&MuonPt);
