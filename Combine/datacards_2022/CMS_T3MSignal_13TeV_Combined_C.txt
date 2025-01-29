@@ -1,0 +1,48 @@
+Combination of CMS_T3MSignal_13TeV_C1.txt  CMS_T3MSignal_13TeV_C2.txt  CMS_T3MSignal_13TeV_C3.txt
+imax 3 number of bins
+jmax 1 number of processes minus 1
+kmax 16 number of nuisance parameters
+----------------------------------------------------------------------------------------------------------------------------------
+shapes bkg       ch1       workspaces/CMS_T3MBkg_13TeV.root w_all:t3m_bkg_expo_threeGlobal_2022_C1
+shapes data_obs  ch1       workspaces/CMS_T3MBkg_13TeV.root w_all:data_obs_C1
+shapes sig       ch1       workspaces/CMS_T3MSignal_13TeV.root w_all:SignalModel_C1
+shapes bkg       ch2       workspaces/CMS_T3MBkg_13TeV.root w_all:t3m_bkg_expo_threeGlobal_2022_C2
+shapes data_obs  ch2       workspaces/CMS_T3MBkg_13TeV.root w_all:data_obs_C2
+shapes sig       ch2       workspaces/CMS_T3MSignal_13TeV.root w_all:SignalModel_C2
+shapes bkg       ch3       workspaces/CMS_T3MBkg_13TeV.root w_all:t3m_bkg_expo_threeGlobal_2022_C3
+shapes data_obs  ch3       workspaces/CMS_T3MBkg_13TeV.root w_all:data_obs_C3
+shapes sig       ch3       workspaces/CMS_T3MSignal_13TeV.root w_all:SignalModel_C3
+----------------------------------------------------------------------------------------------------------------------------------
+bin          ch1    ch2    ch3  
+observation  -1     -1     -1   
+----------------------------------------------------------------------------------------------------------------------------------
+bin                               ch1      ch1      ch2      ch2      ch3      ch3    
+process                           sig      bkg      sig      bkg      sig      bkg    
+process                           0        1        0        1        0        1      
+rate                              2.63632  86.8774  3.52524  316.084  6.34582  1727.24
+----------------------------------------------------------------------------------------------------------------------------------
+DsNorm_22               lnN       1.06     -        1.06     -        1.06     -      
+UncBDTCut               lnN       1.1      -        1.1      -        1.1      -      
+UncHLT_22               lnN       1.024    -        1.024    -        1.024    -      
+UncL1_22                lnN       1.01     -        1.01     -        1.01     -      
+UncMuonEff_22           lnN       1.02     -        1.02     -        1.02     -      
+UncPionEff_22           lnN       1.025    -        1.025    -        1.025    -      
+UncRatioAcc_22          lnN       1.01     -        1.01     -        1.01     -      
+fUnc_22                 lnN       1.07     -        1.07     -        1.07     -      
+ySig_bds                lnN       1.05     -        1.05     -        1.05     -      
+ySig_bscal              lnN       1.04     -        1.04     -        1.04     -      
+ySig_bt                 lnN       1.03     -        1.03     -        1.03     -      
+ySig_dscal              lnN       1.03     -        1.03     -        1.03     -      
+ySig_dsmmp              lnN       1.08     -        1.08     -        1.08     -      
+ySig_dstn               lnN       1.03     -        1.03     -        1.03     -      
+UncMean       param  0.0 1.0
+UncSigma      param  0.0 1.0
+bkg_exp_slope_threeGlobal_2022_C1  flatParam
+t3m_bkg_expo_threeGlobal_2022_C1_normal  flatParam
+bkg_exp_slope_threeGlobal_2022_C2  flatParam
+t3m_bkg_expo_threeGlobal_2022_C2_normal  flatParam
+bkg_exp_slope_threeGlobal_2022_C3  flatParam
+t3m_bkg_expo_threeGlobal_2022_C3_normal  flatParam
+t3m_bkg_expo_threeGlobal_2022_C1_normal  rateParam ch1 bkg 1. [0.99,1.01]
+t3m_bkg_expo_threeGlobal_2022_C2_normal  rateParam ch2 bkg 1. [0.99,1.01]
+t3m_bkg_expo_threeGlobal_2022_C3_normal  rateParam ch3 bkg 1. [0.99,1.01]
