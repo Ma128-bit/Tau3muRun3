@@ -1495,8 +1495,11 @@ if(isAna){
                     //RefittedPV_Chi2.push_back(PVertex.);
 
                     TripletVtx_cov.push_back(SV_cov);
-                      
-                    VertexState BSstate(beamSpot);
+                    
+                    reco::Vertex::Point NewBSPos(beamSpot.x(PVertexPos.z()), beamSpot.y(PVertexPos.z()), beamSpot.z0());
+                    BeamSpot beamSpot_new(NewBSPos, beamSpot.sigmaZ(), beamSpot.dxdz(), beamSpot.dydz(), beamSpot.BeamWidthX(), beamSpot.covariance(), beamSpot.type());
+                    VertexState BSstate(beamSpot_new);
+ 
                     VertexDistanceXY vertTool2D;
                     double BSdistance2D = vertTool2D.distance(BSstate, TripletVtx).value();
                     double BSdist_err2D = vertTool2D.distance(BSstate, TripletVtx).error();
@@ -1510,12 +1513,18 @@ if(isAna){
                     FlightDistBS_SV.push_back(BSdistance2D);
                     FlightDistBS_SV_Err.push_back(BSdist_err2D);
                     FlightDistBS_SV_Significance.push_back(BSdist_sign2D);
-                    
-                    //Beam spot coordinates
-                    BS_x.push_back(x_bs); 
-                    BS_y.push_back(y_bs); 
-                    BS_z.push_back(z_bs); 
 
+                    x_bs = beamSpot_new.x0();
+                    y_bs = beamSpot_new.y0();
+                    z_bs = beamSpot_new.z0();
+
+                    cout<<"Old BS: "<<beamSpot.x0()<<" "<<beamSpot.y0()<<" "<<beamSpot.z0()<<endl;
+                    cout<<"New BS: "<<beamSpot_new.x0()<<" "<<beamSpot_new.y0()<<" "<<beamSpot_new.z0()<<endl;
+                    //Beam spot coordinates
+                    BS_x.push_back(x_bs);
+                    BS_y.push_back(y_bs);
+                    BS_z.push_back(z_bs);
+ 
                     //Add dxy info
                     GlobalVector dir1(mu1->px(), mu1->py(),  mu1->pz()); //To compute sign of IP
                     GlobalVector dir2(mu2->px(), mu2->py(),  mu2->pz()); //To compute sign of IP
