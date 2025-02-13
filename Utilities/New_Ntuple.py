@@ -21,10 +21,10 @@ from ROOT import SF_WeightsComputer, PV_WeightsComputer, add_index
 branches = [
     "isMC", "lumi", "run", "evt", "puFactor", "DeltaR_max", "DeltaZ_max", 
     "Pmu3", "cLP", "tKink", "segmComp", "tripletMass", "fv_nC", "fv_dphi3D", 
-    "fv_d3D", "fv_d3Dsig", "d0", "d0sig", "d0sig_max", "mindca_iso", "trkRel", 
+    "fv_d3D", "fv_d3Dsig", "bs_d2D", "bs_d2Dsig", "d0", "d0sig", "d0sig_max", "mindca_iso", "trkRel", 
     "Ptmu1", "Etamu1", "Ptmu2", "Etamu2", "Ptmu3", "Etamu3", "Pmu1", "Pmu2", 
     "P_tripl", "Pt_tripl", "Eta_tripl", "MVA1", "MVA2", "MVASoft1", "MVASoft2", 
-    "ChargeMu1", "ChargeMu2", "ChargeMu3", "nVtx", 
+    "ChargeMu1", "ChargeMu2", "ChargeMu3", "nVtx",
     "L1_DoubleMu0_er1p5", "L1_DoubleMu0_er1p4","L1_DoubleMu4_dR1p2","L1_DoubleMu4p5_dR1p2",
     "L1_DoubleMu0_er2p0","L1_DoubleMu0_er2p0_bk"
 ]
@@ -65,7 +65,7 @@ def load_df(isTau3mu, year, treename):
         br = branches+branches_tau3mu
     else:
         files = Files["control"+str(year)]
-        br = branches
+        br = branches+["decay_isPrompt"]
     frame = RDataFrame(treename, files, br)
     return frame
 
@@ -75,8 +75,10 @@ def check_type():
     args = parser.parse_args()
     type = args.type
     if "tau3mu" in type:
+        print("tau3mu analysis, year ",int(type.replace("tau3mu", "")))
         return True, int(type.replace("tau3mu", ""))
     elif "control" in type:
+        print("control analysis, year ",int(type.replace("control", "")))
         return False, int(type.replace("control", ""))
     else:
         print("ERROR: choose --type between tau3mu and control")
@@ -110,8 +112,12 @@ if __name__ == "__main__":
         df = df.Define("Muon3_SF", SF_WeightsComputer(SF_2022, SF_2023, False), ["ID", "year", "Ptmu3", "Etamu3"])
         df = df.Define("Muon3_SF_err", SF_WeightsComputer(SF_2022, SF_2023, True), ["ID", "year", "Ptmu3", "Etamu3"])
 
-    
-    histo_file = TFile.Open("PileUp/ratio_histo_"+str(year)+".root")
+    PV_SFs = ""
+    if(year==2022):
+      PV_SFs = PV_SFs_2022
+    elif(year==2023):
+      PV_SFs = PV_SFs_2023
+    histo_file = TFile.Open(PV_SFs)
     if isTau3mu==True:
         histo = histo_file.Get("pileUp_ratio_signal_"+str(year))
     else:
@@ -132,8 +138,8 @@ if __name__ == "__main__":
     df = df.Define("weight_nVtx_err", PV_WeightsComputer(h_name, h_vectors, True), ["ID", "nVtx"])    
     """
     
-    if not os.path.exists("ROOTFiles"):
-        subprocess.run(["mkdir", "ROOTFiles"])
+    if not os.path.exists("/lustrehome/fsimone/Tau3muRun3/ROOTFiles"):
+        subprocess.run(["mkdir", "/lustrehome/fsimone/Tau3muRun3/ROOTFiles"])
 
     df = df.Define("vtx_prob","add_vrtx_proba(fv_nC)")
     branches.append("vtx_prob")
@@ -141,6 +147,10 @@ if __name__ == "__main__":
     #Add new categories in eta
     df = df.Define("category_v2", "new_category(Eta_tripl)")
     branches.append("category_v2")
+
+    #Add prompt flag for CC
+    if isTau3mu==False:
+        branches.append("decay_isPrompt")
     
     if isTau3mu==True:
         #Filters for omega and phi:
@@ -152,11 +162,11 @@ if __name__ == "__main__":
         b_weights = ["ID", "year", "weight", "weight_MC", "weight_CC", "weight_CC_err", "Muon3_SF","Muon2_SF","Muon1_SF","Muon3_SF_err","Muon2_SF_err","Muon1_SF_err","weight_pileUp", "weight_pileUp_err", "training_weight", "combine_weight"]
         df = df.Define("training_weight", "weight_MC * weight_CC * Muon3_SF * weight_pileUp")
         df = df.Define("combine_weight", "weight * weight_CC * Muon3_SF * weight_pileUp")
-        df.Snapshot("FinalTree", "ROOTFiles/AllData"+str(year)+".root", branches+branches_tau3mu+b_weights)
+        df.Snapshot("FinalTree", "/lustrehome/fsimone/Tau3muRun3/ROOTFiles/AllData"+str(year)+".root", branches+branches_tau3mu+b_weights)
     else:
         b_weights = ["ID", "year", "weight","Muon1_SF","Muon2_SF","Muon1_SF_err","Muon2_SF_err","weight_pileUp", "weight_pileUp_err", "control_weight"]
-        df = df.Define("control_weight", "weight * weight_pileUp * Muon3_SF")
-        df.Snapshot("FinalTree", "ROOTFiles/AllControl"+str(year)+".root", branches+b_weights)
+        df = df.Define("control_weight", "weight * weight_pileUp")
+        df.Snapshot("FinalTree", "/lustrehome/fsimone/Tau3muRun3/ROOTFiles/AllControl"+str(year)+".root", branches+b_weights)
     
     print("Performed ",df.GetNRuns()," loops")
     end = time.time()
