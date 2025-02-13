@@ -7,7 +7,10 @@ from file_locations import *
 class ROOTDrawer(draw_utilities.ROOTDrawer):
     pass
 
-var = ["cLP", "tKink", "segmComp", "fv_nC", "d0sig", "fv_dphi3D", "fv_d3Dsig", "mindca_iso", "trkRel", "d0sig_max", "MVASoft1", "MVASoft2","Ptmu3", "fv_d3D"]
+var = ["cLP", "tKink", "segmComp", "fv_nC", "d0sig", "fv_dphi3D", "fv_d3Dsig", "bs_d2D", "bs_d2Dsig",  "mindca_iso", "trkRel", "d0sig_max",\
+       "Pt_tripl", "Eta_tripl",\
+        # "privateMVA_mu1", "privateMVA_mu2",
+       "Ptmu3", "fv_d3D"]
 
 invmass_SB = "(tripletMass<1.8 && tripletMass>1.70)"
 invmass_peak = "(tripletMass<2.01 && tripletMass>1.93)"
@@ -27,6 +30,8 @@ binning_dict = {
     "Etamu2": "(30,0,2.5)",
     "Etamu3": "(30,0,2.5)",
     "Pmu3": "(100,0,50)",
+    "Pt_tripl": "(100,0,50)",
+    "Eta_tripl": "(40,-2.5,2.5)",
     "cLP": "(60,0,20)",
     "segmComp": "(90,0.2,1.1)",
     "tKink": "(50,0,50)",
@@ -39,9 +44,15 @@ binning_dict = {
     "fv_dphi3D": "(42,-0.01,0.20)",
     "cos(fv_dphi3D)": "(70,0.8,1)",
     "fv_d3Dsig": "(50,-0.1,80)",
+    "bs_d2D": "(60,-0.1,1.5)",
+    "bs_d2Dsig": "(80,-0.1,80)",
+    "privateMVA_mu1": "(50,0.0,1.0)",
+    "privateMVA_mu2": "(50,0.0,1.0)",
     "MVASoft1": "(50,0.2,0.8)",
     "MVASoft2": "(50,0.2,0.8)"
 }
+
+control_weight = "(weight * weight_pileUp * Muon1_SF * Muon2_SF)"
 
 def fit_bkg(data):
     data.Draw("tripletMass>>h1(40, 1.65, 2.05)", "control_weight*(isMC==0 &&" + invmass_SB+")")
@@ -81,12 +92,12 @@ def control_plots(file_name, year, type):
         legend_label = ""
         if(type=="diff"):
             legend_label = "SB subtracted"
-            data.Draw(varname + ">>hdata_bkg" + s+ binning, "control_weight*(isMC==0 &&" + invmass_SB+")")
-            data.Draw(varname + ">>hdata_sig" + s + binning, "control_weight*(isMC==0 &&" +invmass_peak+")")
+            data.Draw(varname + ">>hdata_bkg" + s+ binning, control_weight+"*(isMC==0 &&" + invmass_SB+")")
+            data.Draw(varname + ">>hdata_sig" + s + binning, control_weight+"*(isMC==0 &&" +invmass_peak+")")
             hdata_bkg = TH1F(gDirectory.Get("hdata_bkg" + s))
             hdata_sig = TH1F(gDirectory.Get("hdata_sig" + s))
         
-            data.Draw(varname + ">>hMC_sig" + s + binning, "control_weight*(isMC>0 &&" +invmass_peak+")")
+            data.Draw(varname + ">>hMC_sig" + s + binning, control_weight+"*(isMC>0 &&" +invmass_peak+")")
             hMC_sig = TH1F(gDirectory.Get("hMC_sig" + s))
         
             # Scaling the SB distribution to the number of background events in 1.93,2.01
@@ -105,9 +116,11 @@ def control_plots(file_name, year, type):
         # Rescaling
         hdata_sig.Scale(hMC_sig.Integral() / hdata_sig.Integral())
 
+        # Adjusting y axis range to avoid negative values
+        hMC_sig.GetYaxis().SetRangeUser(0, hMC_sig.GetBinContent(hMC_sig.GetMaximumBin())*1.20 )
+
         canvas = ROOTDrawer(SetGridx = True)
         canvas.HaddTH1(hMC_sig, Color=4, SetXName=varname, SetYName="a.u.", Fill=True, label="MC DsPhiPi", FillStyle = 3004)
-        
         canvas.HaddTH1(hdata_sig, Color=1, SetXName=varname, SetYName="a.u.", Fill=False, label="data ("+legend_label+")", DrawOpt="PE1")
         
         h_x_ratio = hdata_sig.Clone()
