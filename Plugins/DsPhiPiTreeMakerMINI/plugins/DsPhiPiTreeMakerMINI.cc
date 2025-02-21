@@ -211,7 +211,7 @@ private:
     std::vector<double> Muon_vx, Muon_vy, Muon_vz;
     
     //MuonID
-    std::vector<double> Muon_isGlobal, Muon_isTracker, Muon_isSoft, Muon_isLoose, Muon_isMedium, Muon_isPF, Muon_isRPCMuon, Muon_isStandAloneMuon, Muon_isTrackerMuon, Muon_isCaloMuon, Muon_isQualityValid, Muon_isTimeValid, Muon_isIsolationValid, Muon_numberOfMatchedStations, Muon_numberOfMatches;
+    std::vector<double> Muon_isGlobal, Muon_isTracker, Muon_isSoft, Muon_isLoose, Muon_isMedium, Muon_isPF, Muon_pfreliso03, Muon_isRPCMuon, Muon_isStandAloneMuon, Muon_isTrackerMuon, Muon_isCaloMuon, Muon_isQualityValid, Muon_isTimeValid, Muon_isIsolationValid, Muon_numberOfMatchedStations, Muon_numberOfMatches;
     
     //MuonTime
     std::vector<double>  Muon_timeAtIpInOut, Muon_timeAtIpInOutErr;
@@ -398,7 +398,11 @@ bool isGoodTrack(const reco::Track &track) {
     }
     return false;
 }
-    
+
+double PFreliso03(pat::Muon imu){
+    return (imu.pfIsolationR03().sumChargedHadronPt + std::max(imu.pfIsolationR03().sumNeutralHadronEt + imu.pfIsolationR03().sumPhotonEt - 0.5 * imu.pfIsolationR03().sumPUPt, 0.0)) / imu.pt();
+}
+
 typedef std::map<const reco::Track*, reco::TransientTrack> TransientTrackMap;
 // auxiliary function to exclude tracks associated to tau lepton decay "leg"
 // from primary event vertex refit
@@ -1820,6 +1824,7 @@ DsPhiPiTreeMakerMINI::analyze(const edm::Event& iEvent, const edm::EventSetup& i
         Muon_isLoose.push_back(mu->isLooseMuon());
         Muon_isMedium.push_back(mu->isMediumMuon());
         Muon_isPF.push_back(mu->isPFMuon());
+        Muon_pfreliso03.push_back(PFreliso03(*mu));
         Muon_isRPCMuon.push_back(mu->isRPCMuon());
         Muon_isStandAloneMuon.push_back(mu->isStandAloneMuon());
         Muon_isTrackerMuon.push_back(mu->isTrackerMuon());
@@ -2118,6 +2123,7 @@ DsPhiPiTreeMakerMINI::analyze(const edm::Event& iEvent, const edm::EventSetup& i
     Muon_isLoose.clear();
     Muon_isMedium.clear();
     Muon_isPF.clear();
+    Muon_pfreliso03.clear();
     Muon_isRPCMuon.clear();
     Muon_isStandAloneMuon.clear();
     Muon_isTrackerMuon.clear();
@@ -2524,6 +2530,7 @@ void DsPhiPiTreeMakerMINI::beginJob() {
     tree_->Branch("Muon_isLoose", &Muon_isLoose);
     tree_->Branch("Muon_isMedium", &Muon_isMedium);
     tree_->Branch("Muon_isPF", &Muon_isPF);
+    tree_->Branch("Muon_pfreliso03", &Muon_pfreliso03);
     tree_->Branch("Muon_isRPCMuon", &Muon_isRPCMuon);
     tree_->Branch("Muon_isStandAloneMuon", &Muon_isStandAloneMuon);
     tree_->Branch("Muon_isTrackerMuon", &Muon_isTrackerMuon);

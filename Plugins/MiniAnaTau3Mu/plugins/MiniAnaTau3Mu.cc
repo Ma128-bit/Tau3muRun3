@@ -288,7 +288,7 @@ private:
     std::vector<double>  Triplet_IsoMu1, Triplet_IsoMu2, Triplet_IsoMu3;
     std::vector<double>  FlightDistBS_SV,  FlightDistBS_SV_Err,  FlightDistBS_SV_Significance;
 
-    std::vector<double>  Mu1_IsGlobal, Mu2_IsGlobal, Mu3_IsGlobal, Mu1_IsPF, Mu2_IsPF, Mu3_IsPF;
+    std::vector<double>  Mu1_IsGlobal, Mu2_IsGlobal, Mu3_IsGlobal, Mu1_IsPF, Mu2_IsPF, Mu3_IsPF, Mu1_pfreliso03, Mu2_pfreliso03, Mu3_pfreliso03;
     
     std::vector<double> L1Muon_Pt, L1Muon_Eta, L1Muon_Phi, L1Muon_EtaAtVtx, L1Muon_PhiAtVtx, L1Muon_BX, L1Muon_Quality, L1Muon_Charge, L1Muon_ChargeValid, L1Muon_TfMuonIndex, L1Muon_dPhi, L1Muon_dEta, L1Muon_rank, L1Muon_isoSum;
 
@@ -374,7 +374,11 @@ bool isGoodTrack(const reco::Track &track) {
     }
     return false;
 }
-    
+
+double PFreliso03(pat::Muon imu){
+    return (imu.pfIsolationR03().sumChargedHadronPt + std::max(imu.pfIsolationR03().sumNeutralHadronEt + imu.pfIsolationR03().sumPhotonEt - 0.5 * imu.pfIsolationR03().sumPUPt, 0.0)) / imu.pt();
+}
+ 
 typedef std::map<const reco::Track*, reco::TransientTrack> TransientTrackMap;
 // auxiliary function to exclude tracks associated to tau lepton decay "leg"
 // from primary event vertex refit
@@ -1138,8 +1142,11 @@ if(isAna){
                     Mu1_IsPF.push_back(mu1->isPFMuon());
                     Mu2_IsPF.push_back(mu2->isPFMuon());
                     Mu3_IsPF.push_back(mu3->isPFMuon());
-                    //cout<<"Reco mu1 pt="<<mu1->pt()<<" mu2 pt="<<mu2->pt()<<" mu3 pt="<<mu3->pt()<<endl;
-                    
+                    //cout<<"Reco mu1 pt="<<mu1->pt()<<" mu2 pt="<<mu2->pt()<<" mu3 pt="<<mu3->pt()<<endl; 
+                    Mu1_pfreliso03.push_back(PFreliso03(*mu1));
+                    Mu2_pfreliso03.push_back(PFreliso03(*mu2));
+                    Mu3_pfreliso03.push_back(PFreliso03(*mu3));
+
                     //Refitted vars related to SV
                     std::vector<reco::TransientTrack> Ttracks;
                     Ttracks.push_back(transientTrack1);
@@ -1772,6 +1779,10 @@ if(isAna){
                     Mu1_IsPF.push_back(-99);
                     Mu2_IsPF.push_back(-99);
                     Mu3_IsPF.push_back(-99);
+
+                    Mu1_pfreliso03.push_back(-99);
+                    Mu2_pfreliso03.push_back(-99);
+                    Mu3_pfreliso03.push_back(-99);
 
                 }//!(PVertex.isValid() && TauIt->vertexChi2() >0)
             }//transTracksAssoToVtx_copy.size()>1
@@ -2480,7 +2491,11 @@ for(edm::View<pat::Muon>::const_iterator mu=muons->begin(); mu!=muons->end(), k<
     Mu1_IsPF.clear();
     Mu2_IsPF.clear();
     Mu3_IsPF.clear();
-    
+
+    Mu1_pfreliso03.clear(); 
+    Mu2_pfreliso03.clear(); 
+    Mu3_pfreliso03.clear(); 
+
     L1Muon_Pt.clear();
     L1Muon_Eta.clear();
     L1Muon_Phi.clear();
@@ -2741,6 +2756,10 @@ void MiniAnaTau3Mu::beginJob() {
     tree_->Branch("Mu1_IsPF", &Mu1_IsPF);
     tree_->Branch("Mu2_IsPF", &Mu2_IsPF);
     tree_->Branch("Mu3_IsPF", &Mu3_IsPF);
+ 
+    tree_->Branch("Mu1_pfreliso03", &Mu1_pfreliso03);
+    tree_->Branch("Mu2_pfreliso03", &Mu2_pfreliso03);
+    tree_->Branch("Mu3_pfreliso03", &Mu3_pfreliso03);
     
     tree_->Branch("dxy_mu1", &dxy_mu1);
     tree_->Branch("dxy_mu2", &dxy_mu2);
