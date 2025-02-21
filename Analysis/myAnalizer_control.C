@@ -224,9 +224,9 @@ void myAnalizer_control::Loop_DsPhiPi(TString type, TString datasetName)
         
         if(goodTriplInd.size()>0){
             ind_good = BestTripletFinder(goodTriplInd);
-            if(debug&&isMC) cout<<"The decay is [Prompt (if 0), not Prompt (if 1), neither (if -1)]: "<<evt_isPrompt->at(0)<<endl;
+            if(debugMode&&isMC) cout<<"The decay is [Prompt (if 0), not Prompt (if 1), neither (if -1)]: "<<evt_isPrompt->at(0)<<endl;
             //GenParticle_loop(jentry, outfile);
-            if(debug){
+            if(debugMode){
                 cout << "Event n. "<<jentry<<endl;
                 cout << "Questo è il tripletto buono: " << ind_good <<endl;
                 cout << "mu01"<<"(pt,eta,phi) = "<< Mu01_Pt->at(ind_good)<<", "<<Mu01_Eta->at(ind_good)<<", "<<Mu01_Phi->at(ind_good)<<"." << endl;
