@@ -13,8 +13,8 @@ process.load('Configuration.EventContent.EventContent_cff')
 process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
 process.load('Configuration.StandardSequences.MagneticField_AutoFromDBCurrent_cff')
 process.load('Configuration.StandardSequences.EndOfProcess_cff')
-process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_cff")
-#process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_noHLT_cff")
+process.load("Tau3muNtuplizer.SkimTools.Tau3MuSkim_miniAOD_cff")
+#process.load("Tau3muNtuplizer.SkimTools.Tau3MuSkim_miniAOD_noHLT_cff")
 
 process.GlobalTag.globaltag = '130X_mcRun3_2022_realistic_postEE_v6' #DO NOT CHANGE THIS LINE
 
