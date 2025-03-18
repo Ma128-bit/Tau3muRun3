@@ -13,8 +13,8 @@ process.load('Configuration.EventContent.EventContent_cff')
 process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
 process.load('Configuration.StandardSequences.MagneticField_AutoFromDBCurrent_cff')
 process.load('Configuration.StandardSequences.EndOfProcess_cff')
-process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_cff")
-#process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_noHLT_cff")
+process.load("Tau3muNtuplizer.SkimTools.Tau3MuSkim_miniAOD_cff")
+#process.load("Tau3muNtuplizer.SkimTools.Tau3MuSkim_miniAOD_noHLT_cff")
 
 process.GlobalTag.globaltag = '124X_dataRun3_PromptAnalysis_v1' #DO NOT CHANGE THIS LINE
 
