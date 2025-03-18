@@ -5,6 +5,7 @@ The main informations on data and MC samples are stored in the `Runs.json` file 
 ### How to add new years (or modify existing ones)
 1. Apply your changes in `Runs.json`;
 2. If your changes affect data (not required if changes are only in MC), run `getDatset.py` to download information from DAS (as in the example below);
+    - `voms-proxy-init -voms cms -rfc`
     - `python3 getDatset.py --year 2022` 
 
 <p>&nbsp;</p>
