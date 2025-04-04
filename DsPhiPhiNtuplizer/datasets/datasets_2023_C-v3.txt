@@ -1,0 +1,8 @@
+/ParkingDoubleMuonLowMass0/Run2023C-22Sep2023_v3-v1/MINIAOD
+/ParkingDoubleMuonLowMass1/Run2023C-22Sep2023_v3-v1/MINIAOD
+/ParkingDoubleMuonLowMass2/Run2023C-22Sep2023_v3-v1/MINIAOD
+/ParkingDoubleMuonLowMass3/Run2023C-22Sep2023_v3-v1/MINIAOD
+/ParkingDoubleMuonLowMass4/Run2023C-22Sep2023_v3-v1/MINIAOD
+/ParkingDoubleMuonLowMass5/Run2023C-22Sep2023_v3-v1/MINIAOD
+/ParkingDoubleMuonLowMass6/Run2023C-22Sep2023_v3-v1/MINIAOD
+/ParkingDoubleMuonLowMass7/Run2023C-22Sep2023_v3-v1/MINIAOD
