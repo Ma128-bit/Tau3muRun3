@@ -30,7 +30,7 @@ source submit_CRAB.sh [era] [year]
 **For MC:**
 
 * `[year]` = `2022` or  `2023`: `[era]` = `MC_Bd_pre, MC_Bu_pre, MC_Ds_pre, MC_Bd_post, MC_Bu_post, MC_Ds_post`
-* `[year]` = `2024` or  `2023`: `[era]` = `MC_Bd, MC_Bu, MC_Ds`
+* `[year]` = `2024` : `[era]` = `MC_Bd, MC_Bu, MC_Ds`
 
 <p>&nbsp;</p>
 
