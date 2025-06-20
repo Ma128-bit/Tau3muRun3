@@ -1,4 +1,4 @@
-# Ntuplizer code for the τ&rarr;3mu search at Run 3
+# Ntuplizer code for the τ&rarr;3mu search (control channel) at Run 3
 
 ## Instructions
 The main informations on data and MC samples are stored in the `Runs.json` file and in files in the `datasets` folder.
