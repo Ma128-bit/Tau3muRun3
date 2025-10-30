@@ -680,9 +680,14 @@ void MiniAnaTau3Mu::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
 cout << "I'm here L1" << endl;
 gtUtil_->retrieveL1(iEvent, iSetup, algTok_);
 cout << "I'm here L1 bis" << endl;
+/*
 const vector<pair<string, bool> > initialDecisions = gtUtil_->decisionsInitial();
 const vector<pair<string, bool> > finalDecisions = gtUtil_->decisionsFinal();
 const vector<pair<string, double> > PSValues = gtUtil_->prescales();
+*/
+const auto &initialDecisions = gtUtil_->decisionsInitial();
+const auto &finalDecisions   = gtUtil_->decisionsFinal();
+const auto &PSValues         = gtUtil_->prescales();
 
 if(initialDecisions.size() != finalDecisions.size()) 
     cout << "L1 initial and final decisions have different size!" << endl;
@@ -691,7 +696,7 @@ if (!iEvent.isRealData())
     //cout<<"sto qua is MC"<<endl;
     for (size_t i_l1t = 0; i_l1t < initialDecisions.size(); i_l1t++)
       {
-        string l1tName = (initialDecisions.at(i_l1t)).first;
+        std::string l1tName = std::string((initialDecisions.at(i_l1t)).first);
         //cout<<"l1 name="<<l1tName<<endl;
         if(l1tName.find("DoubleMu") != string::npos || l1tName.find("TripleMu") != string::npos ||  l1tName.find("SingleMu")!= string::npos ){
           //cout<<"l1 name="<<l1tName<<endl;
@@ -709,7 +714,7 @@ else
     //if(psRcd) psRcd->get(psAndVetos);
     //int columnN= gtUtil_->prescaleColumn();
     for (size_t i_l1t = 0; i_l1t < initialDecisions.size(); i_l1t++) {
-      string l1tName = (initialDecisions.at(i_l1t)).first;
+      std::string l1tName = std::string((initialDecisions.at(i_l1t)).first);
       if(l1tName.find("DoubleMu") != string::npos || l1tName.find("TripleMu") != string::npos ||  l1tName.find("SingleMu")!= string::npos){
         //cout<<"L1Seed="<<l1tName<<" decision="<<initialDecisions.at(i_l1t).second<<" prescale="<<(psAndVetos->prescale_table_)[columnN][i_l1t]<<endl;
         Trigger_l1name.push_back( l1tName );
